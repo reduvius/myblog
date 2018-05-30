@@ -1,0 +1,52 @@
+#npst {
+    width: 50%;
+	color: #f7f7f7;
+	background: rgba(51, 51, 51, 0.9);
+    padding: 5px;
+	margin: 5% auto;
+    font-family: Rockwell, serif;
+	text-align: justify;
+	box-shadow: 5px 5px 15px #252e42;
+    border-radius: 4px;
+    z-index: auto;
+}
+
+#npst strong {
+    padding: 10px;
+    color: red;
+}
+
+#npst form label {
+    display: block;
+}
+
+.inp3 {
+    width: 99%;
+}
+
+.component {
+    padding: 1.2% 1.5%;
+}
+
+#npst form textarea {
+    resize: vertical;
+    padding: 1.2% 0.4%;
+}
+
+#npst form button {
+    background-color: #3b5998;
+    border: none;
+    color: #f7f7f7;
+    padding: 3px 12px;
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+#npst form button:hover {
+    background-color: #8b9dc3;
+    color: white;
+}

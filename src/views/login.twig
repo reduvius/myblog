@@ -1,0 +1,43 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    Sign In
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+
+    <link rel="stylesheet" href="/src/views/css/logreg.css" />
+{% endblock %}
+
+{% block content %}
+    <div id="log-reg">
+        <h2 class="component">Login</h2>
+
+        {% if errorMessage is defined %}
+            <strong>{{ errorMessage }}</strong>
+        {% endif %}
+
+        <form name="nwf1" method="POST" action="/login"
+            onsubmit="return validateForm()">
+            <div class="component">
+                <label for="email">Email</label>
+                <input type="email" name="email" />
+            </div>
+            <div class="component">
+                <label for="password">Password</label>
+                <input type="password" name="password" />
+            </div>
+            <div class="component">
+                <button class="button" type="submit">Login</button>
+            </div>
+        </form>
+
+        <p class="component">Don't have an account?</p>
+        <div class="component">
+            <a class="button" href="/register/get-form">Register</a>
+        </div>
+    </div>
+
+    <script src="/src/views/js/login.js"></script>
+{% endblock %}

@@ -1,0 +1,222 @@
+#plsi {
+	width: 44.5%;
+	font-size: 1em;
+	text-align: center;
+	padding: 1%;
+	background: rgba(51, 51, 51, 0.8);
+	opacity: 0.8;
+	margin: 2% auto;
+	color: white;
+	cursor: crosshair;
+	transition: all 1.2s ease-out 0s;
+}
+
+#plsi:hover {
+	background: rgba(203, 36, 36, 0.8);
+}
+
+#sec1 {
+	width: 45%;
+    opacity: 0.8;
+	color: #f7f7f7;
+    background-color: #333;
+    padding: 0.5%;
+    border-left: 8px solid #d9534f;
+	margin: 2% auto;
+    font-family: Arial, Helvetica, sans-serif;
+	text-align: justify;
+	box-shadow: 5px 5px 15px #252e42;
+	position: relative;
+	z-index: auto;
+}
+
+#sec1 h2 a {
+	text-decoration: none;
+	color: #f7f7f7;
+	font-family: Rockwell, serif;
+	padding: 0% 1% 0% 1%;
+}
+
+#sec1 h2 a:hover {
+	text-decoration: underline;
+}
+
+#sec1-1 div {
+	display: inline;
+    position: absolute;
+	padding: 0% 1% 0% 1%;
+}
+
+#sec1-1 div:first-child {
+	left: 1%;
+}
+
+#sec1-1 div:first-child p, #show-size {
+    font-size: 0.7em;
+	font-style: italic;
+    display: inline;
+	opacity: 1;
+	position: relative;
+}
+
+#sec1-1 div:last-child {
+	right: 1%;
+}
+
+#sec1-1 div i {
+	font-size: 0.7em;
+}
+
+#show-size:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#sec1-1 div:last-child button {
+	font-size: 0.7em;
+	opacity: 1;
+	border: 1px solid #f7f7f7;
+	padding: 0px 5px;
+	display: none;
+	color: #f7f7f7;
+	background-color: #333;
+}
+
+#sec1-1 div:last-child button:hover {
+	background-color: #f7f7f7;
+	color: #333;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+#pst-cnt, .pst-cnt {
+	padding: 5% 1% 2.5% 1%;
+	white-space: pre-line; /* show line breaks in browser */
+}
+
+.hidden {
+    display: none;
+}
+
+.mr-ls {
+	color: #d9534f;
+	cursor: pointer;
+}
+
+#sec1-2 {
+	padding: 1.5% 0%;
+	position: relative;
+}
+
+#sec1-2 div {
+	display: inline;
+	position: absolute;
+	top: 3%;
+}
+
+#sec1-2 div:first-child {
+	left: 0%;
+}
+
+#sec1-2 div:last-child {
+	right: 0%;
+}
+
+#comm {
+	font-size: 0.7em;
+	font-style: italic;
+	display: inline;
+}
+
+#comm:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+sec1-2 div:last-child a {
+    text-decoration: none;
+    display: inline;
+}
+
+#sec1-2 div:last-child a i {
+	background-color: #333;
+	color: #f7f7f7;
+	transition-duration: 0s;
+	font-size: 1.3em;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+#sec1-2 div:last-child a i:hover {
+    font-weight: bold;
+}
+
+#sec2 {
+	width: 45%;
+	margin: -1.7% auto 2% auto;
+	opacity: 0.8;
+	background-color: #333;
+	padding: 0.5%;
+	box-shadow: 5px 5px 15px #252e42;
+	display: none;
+	border-left: 8px solid #d9534f;
+	z-index: auto;
+}
+
+#sec2 form input {
+	margin: 1% 3%;
+}
+
+#sec2 form textarea {
+	width: 93%;
+	margin: auto 3%;
+	position: relative;
+	resize: vertical;
+}
+
+#sec2 form button {
+	display: block;
+	margin: 1% 3%;
+	background-color: #3b5998;
+	color: #f7f7f7;
+	border: none;
+	padding: 3px 12px;
+	cursor: pointer;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+#sec2 form button:hover {
+	background-color: #8b9dc3;
+}
+
+#pagination {
+    text-align: center;
+	margin-bottom: 2%;
+}
+
+.pgs, #pgs-act {
+	border-bottom: 3px solid #d9534f;
+	padding: 4px 8px;
+	text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.7em;
+    cursor: pointer;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+}
+
+.pgs{
+    color: black;
+}
+
+.pgs:hover {
+    background-color: #d9534f;
+    color: white;
+}
+
+#pgs-act {
+    background-color: #d9534f;
+    color: white;
+}

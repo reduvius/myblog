@@ -1,0 +1,38 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    New Article
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+
+    <link rel="stylesheet" href="/src/views/css/new.css" />
+{% endblock %}
+
+{% block content %}
+    <div id="npst">
+        <h2 class="component">Add new post</h2>
+
+        {% if errorMessage is defined %}
+            <strong>{{ errorMessage }}</strong>
+        {% endif %}
+
+        <form name="nwfm" method="post" action="/new"
+            onsubmit="return validateForm()">
+            <div class="component">
+                <label for="title">Title</label>
+                <input class="inp3" type="text" name="title"/>
+            </div>
+            <div class="component">
+                <label for="content">Text</label>
+                <textarea class="inp3" rows="17" name="content"></textarea>
+            </div>
+            <div class="component">
+                <button type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/src/views/js/new.js"></script>
+{% endblock %}

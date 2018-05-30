@@ -1,0 +1,15 @@
+{% extends "layout.twig" %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+
+    <link rel="stylesheet" href="/src/views/css/error.css" />
+{% endblock %}
+
+{% block content %}
+    <h1>Error: {{ errorMessage }}</h1>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<title>{% block title %}{% endblock %} - My First Blog</title>
+	    <meta charset="UTF-8">
+		<meta name="description" content="Learning web development...">
+		<meta name="keywords" content="blog, web, development">
+		<meta name="author" content="VexOn">
+        {% block css %}
+            <link rel="stylesheet" href="/src/views/css/layout.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+                body { background: url("/src/views/images/bckg5.jpg") fixed }
+            </style>
+		{% endblock %}
+        <script src=
+            "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+        </script>
+	</head>
+
+    <body>
+        <header onmouseover="hdpAct()">
+            <p id="hdp1">My First Blog</p>
+	        <p id="hdp2">[Work in progress...]</p>
+        </header>
+
+	    <div id="navbar">
+		    <ul>
+                <li>
+                    <form id="search" action="/search" method="get">
+                        <input type="search" name="title"
+                            placeholder="Search by title">
+                        <input type="submit" value="Search">
+                    </form>
+                </li>
+                <li><a href="/">Articles</a></li>
+                {% if isAuth %}
+                    <li><a href="/my-posts">My Articles</a></li>
+                    <li><a href="/new/get-form">New</a></li>
+                {% endif %}
+                {% if isAuth %}
+                    <li id="ddn">
+                        <a><i class="fa">&#xf007;</i></a>
+                        <div id="ddn-cnt">
+                            <a href="/profile">My Profile</a>
+                            <a href="/logout"><i class="fa">&#xf08b;</i>
+                                Sign out
+                            </a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="rgh"><a href="/register/get-form">
+                        Sign up</a></li>
+				    <li class="rgh"><a href="/login/get-form">Sign in</a></li>
+                {% endif %}
+            </ul>
+		</div>
+
+		{% block content %}{% endblock %}
+
+        <script src="/src/views/js/layout.js"></script>
+    </body>
+
+</html>

@@ -1,0 +1,65 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+
+    <link rel="stylesheet" href="/src/views/css/posts.css" />
+{% endblock %}
+
+{% block content %}
+
+    {% if not isAuth %}
+        <p id="plsi">Please, sign in to add new articles</p>
+    {% endif %}
+
+    <div id="sec1">
+        <h2><a>{{ post.title }}</a></h2>
+        <hr>
+        <div id="sec1-1">
+            <div>
+                <i class="fa">&#xf017;</i>
+                <p>{{ post.date }}</p>
+                <p>|</p>
+                <i class="fa">&#xf007;</i>
+                <p>Posted by: {{ post.name }}</p>
+                <p>|</p>
+                <i class="fa">&#xf075;</i>
+            </div>
+            <div>
+                <p id="show-size">Text size <span>▸</span></p>
+                <button id="default">default</button>
+                <button id="increase">+</button>
+                <button id="decrease">-</button>
+            </div>
+        </div>
+        <div id="pst-cnt">{{ post.content }}</div>
+        <hr>
+        <div id="sec1-2">
+            <div><p id="comm">Show comment section ▾</p></div>
+            {% if isAuth and post.userId == uId %}
+                <div>
+                    <a title="Edit post"><i class="fa">&#xf044;</i></a>
+                    <a href="/delete-post/{{ post.id }}" title="Delete post">
+                        <i class="fa">&#xf1f8;</i>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="sec2">
+        <form name="nwfm1" onsubmit="return validateForm()">
+            <input type="text" name="comm-name" placeholder="Enter your name">
+            <textarea rows="2" name="comment" maxlength="500"
+                placeholder="Write your comment here...">
+            </textarea>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <script src="/src/views/js/post.js"></script>
+{% endblock %}

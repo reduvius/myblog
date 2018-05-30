@@ -1,0 +1,80 @@
+{
+  "": {
+    "controller": "Post",
+	"method": "getAllPosts"
+  },
+  "posts/:page": {
+    "controller": "Post",
+	"method": "getAllPostsWithPage",
+	"params": {
+	  "page": "number"
+	}
+  },
+  "post/:id": {
+    "controller": "Post",
+	"method": "getPost",
+	"params": {
+	  "id": "number"
+	}
+  },
+  "my-posts": {
+    "controller": "Post",
+	"method": "getPostsByUser",
+	"login": true
+  },
+  "my-posts/:page": {
+    "controller": "Post",
+	"method": "getPostsByUserWithPage",
+	"login": true,
+    "params": {
+	  "page": "number"
+	}
+  },
+  "search": {
+    "controller": "Post",
+	"method": "search"
+  },
+  "new/get-form": {
+    "controller": "Post",
+    "method": "newPostGetForm",
+    "login": true
+  },
+  "new": {
+    "controller": "Post",
+	"method": "newPost",
+	"login": true
+  },
+  "delete-post/:id": {
+    "controller": "Post",
+    "method": "deletePost",
+    "login": true,
+    "params": {
+	  "id": "number"
+	}
+  },
+  "register/get-form": {
+    "controller": "User",
+	"method": "getRegisterForm"
+  },
+  "register": {
+    "controller": "User",
+	"method": "register"
+  },
+  "login/get-form": {
+    "controller": "User",
+	"method": "getLoginForm"
+  },
+  "login": {
+    "controller": "User",
+	"method": "login"
+  },
+  "logout": {
+    "controller": "User",
+	"method": "logout"
+  },
+  "profile": {
+    "controller": "User",
+	"method": "getProfile",
+    "login": true
+  }
+}
