@@ -12,28 +12,30 @@
 
 {% block content %}
 
-    <div id="sec1">
-        <div>
-            <p>Name: <b>{{ user.name }}</b></p>
+    <!-- MAIN DIV ELEMENT -->
+    <div id="main" class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <!-- PROFILE SECTION -->
+            <div id="section">
+                <div id="img-cont">
+                    <img src="../../src/storage/images/avatars/default-img.png"
+                        alt="Avatar">
+                    <div id="overlay">Change your avatar</div>
+                </div>
+                <p><i class="fa fa-user"></i> Name: {{ user.name }}</p>
+                <hr>
+                <p><i class="fa fa-envelope"></i> Email: {{ user.email }}</p>
+                <hr>
+                <p><i class="fa fa-key"></i> Password</p>
+                <hr>
+                <p id="show">Show stats ▾</p>
+                <p id="stats">• Number of posts: {{ numberOfPosts }}</p>
+            </div>
         </div>
-            <hr>
-        <div>
-            <p>Email: <b>{{ user.email }}</b></p>
-            <p><a>Change your email adress</a></p>
-        </div>
-            <hr>
-        <div>
-            <p>Password</p>
-            <p><a>Change your password</a></p>
-        </div>
-            <hr>
-        <div id="show">
-            <p>Show stats ▾</p>
-        </div>
-        <div id="stats">
-            <p>• Number of posts: {{ numberOfPosts }}</p>
-        </div>
+        <div class="col-4"></div>
     </div>
 
+    <!-- LOAD JS -->
     <script src="/src/views/js/profile.js"></script>
 {% endblock %}

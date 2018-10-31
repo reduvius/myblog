@@ -1,0 +1,59 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    Welcome Page
+{% endblock %}
+
+{% block css %}
+{{ parent() }}
+
+    <link rel="stylesheet" href="/src/views/css/welcome.css" />
+{% endblock %}
+
+{% block content %}
+
+    <!-- MAIN DIV ELEMENT -->
+    <div id="main" class="row">
+        <div class="col-3">
+            <p>Technologies used in making of this demo website:</p>
+            <ul>
+                <li>HTML5 &#10004;</li>
+                <li>CSS3 &#10004;</li>
+                <li>PHP &#10004;</li>
+                <li>MySQL &#10004;</li>
+                <li>JavaScript &#10004;</li>
+                <li>jQuery &#10004;</li>
+                <li>Git &#10004;</li>
+                <li>Vagrant &#10004;</li>
+            </ul>
+        </div>
+        <div class="col-7">
+            <h1>Welcome!</h1>
+
+            <p>A small blog for demonstration purposes only.
+            <p>This project doesn't use any PHP framework, it's vanilla PHP.</p>
+            <p>There is no database migration library, but database
+                (only structure) dump .sql file is included in /db/structure
+                folder. You have to import it manually.</p>
+            </p>
+        </div>
+        <div class="col-2">
+            <img src="../../src/storage/images/welcome/html5-logo.png"
+                alt="HTML5">
+            <img src="../../src/storage/images/welcome/css3-logo.png"
+                alt="CSS3">
+            <img src="../../src/storage/images/welcome/js-logo.png" alt="JS">
+            <img src="../../src/storage/images/welcome/vagrant-logo.png"
+                alt="Vagrant">
+            <img src="../../src/storage/images/welcome/php-logo.png" alt="PHP">
+            <img src="../../src/storage/images/welcome/mysql-logo.png"
+                alt="MySQL">
+            <img src="../../src/storage/images/welcome/jquery-logo.png"
+                alt="jQuery">
+            <img src="../../src/storage/images/welcome/git-logo.png" alt="Git">
+        </div>
+    </div>
+
+    <!-- LOAD JS -->
+    <script src="/src/views/js/welcome.js"></script>
+{% endblock %}

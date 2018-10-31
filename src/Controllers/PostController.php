@@ -8,6 +8,7 @@ use MyBlog\Domain\Post\PostFactory;
 class PostController extends AbstractController {
 	const PAGE_LENGTH = 10;
 
+    // Get post by id
 	public function getPost(int $id): string {
 		$postModel = new PostModel($this->db);
 
@@ -21,6 +22,7 @@ class PostController extends AbstractController {
 		return $this->render('post.twig', $properties);
 	}
 
+    // Get all posts with page
 	public function getAllPostsWithPage($page): string {
 		$page = (int) $page;
 		$postModel = new PostModel($this->db);
@@ -46,10 +48,12 @@ class PostController extends AbstractController {
 		return $this->render('posts.twig', $properties);
 	}
 
+    // Get all posts with page 1
 	public function getAllPosts(): string {
 		return $this->getAllPostsWithPage(1);
 	}
 
+    // Get all posts by user with page
 	public function getPostsByUserWithPage($page): string {
 		$page = (int) $page;
 	    $postModel = new PostModel($this->db);
@@ -79,10 +83,12 @@ class PostController extends AbstractController {
 		return $this->render('my-posts.twig', $properties);
 	}
 
+    // Get all posts by user with page 1
 	public function getPostsByUser(): string {
 		return $this->getPostsByUserWithPage(1);
 	}
 
+    // Search by post title
 	public function search(): string {
 		$title = $this->request->getParams()->getString('title');
 
@@ -108,12 +114,14 @@ class PostController extends AbstractController {
 		return $this->render('posts.twig', $properties);
 	}
 
+    // Get form for creating new posts
 	public function newPostGetForm(): string {
 		return $this->render('new.twig', [
 			'isAuth' => $this->isAuthenticated()
 		]);
 	}
 
+    // Create new post
 	public function newPost(): string {
 		if (!$this->request->isPost()) {
 			return $this->render('new.twig', [
@@ -161,6 +169,7 @@ class PostController extends AbstractController {
 		return $this->getPostsByUser();
 	}
 
+    // Delete post
 	public function deletePost(int $id): string {
 		$postModel = new PostModel($this->db);
 		$postModel->deletePost($id);

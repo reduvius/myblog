@@ -8,6 +8,7 @@ use PDO;
 class UserModel extends AbstractModel {
 	const CLASSNAME = '\MyBlog\Domain\User';
 
+    // Get user by id
 	public function getUserById(int $id): User {
 		$query = 'SELECT * FROM users WHERE id = :id';
 		$sth = $this->db->prepare($query);
@@ -22,6 +23,7 @@ class UserModel extends AbstractModel {
 		return $user[0];
 	}
 
+    // Get user by both email and password
 	public function getUserByEmlAndPswd(
 		string $email,
 		string $password
@@ -45,6 +47,7 @@ SQL;
 		return $user[0];
 	}
 
+    // Create new user
 	public function createNewUser(User $user) {
 		$query = <<<SQL
 INSERT INTO users (name, email, password)

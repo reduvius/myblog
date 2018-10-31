@@ -1,63 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>{% block title %}{% endblock %} - My First Blog</title>
+		<title>{% block title %}{% endblock %} - Myblog</title>
 	    <meta charset="UTF-8">
-		<meta name="description" content="Learning web development...">
+		<meta name="description" content="Demo website">
 		<meta name="keywords" content="blog, web, development">
 		<meta name="author" content="VexOn">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block css %}
             <link rel="stylesheet" href="/src/views/css/layout.css" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <style>
-                body { background: url("/src/views/images/bckg5.jpg") fixed }
-            </style>
 		{% endblock %}
-        <script src=
-            "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 
     <body>
-        <header onmouseover="hdpAct()">
-            <p id="hdp1">My First Blog</p>
-	        <p id="hdp2">[Work in progress...]</p>
+        <!-- HEADER -->
+        <header>
+            <h2>Myblog: a simple demo website</h2>
+            <p><span>{</span> work in progress... <span>}</span></p>
         </header>
 
-	    <div id="navbar">
-		    <ul>
-                <li>
-                    <form id="search" action="/search" method="get">
-                        <input type="search" name="title"
-                            placeholder="Search by title">
-                        <input type="submit" value="Search">
-                    </form>
-                </li>
-                <li><a href="/">Articles</a></li>
+        <!-- NAVIGATION BAR -->
+        <nav class="topnav" id="myTopnav">
+            <!-- LEFT -->
+            <a href="/"><i class="fa fa-home"></i></a>
+            <a href="/posts">Articles</a>
+            {% if isAuth %}
+                <a href="/my-posts">My Articles</a>
+                <a href="/new/get-form">New</a>
+            {% endif %}
+            <!-- SEARCH -->
+            <div class="search-container">
+                <form action="/search" method="get">
+                    <input type="search" placeholder="Search by title"
+                        name="title">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <!-- RIGHT -->
+            <div class="r-nav">
                 {% if isAuth %}
-                    <li><a href="/my-posts">My Articles</a></li>
-                    <li><a href="/new/get-form">New</a></li>
-                {% endif %}
-                {% if isAuth %}
-                    <li id="ddn">
-                        <a><i class="fa">&#xf007;</i></a>
-                        <div id="ddn-cnt">
-                            <a href="/profile">My Profile</a>
-                            <a href="/logout"><i class="fa">&#xf08b;</i>
-                                Sign out
+                    <!-- DROPDOWN -->
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <i class="fa">&#xf007;</i>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/profile">
+                                <i class="fa fa-vcard"></i> My Profile
+                            </a>
+                            <a href="/logout">
+                                <i class="fa">&#xf08b;</i> Sign out
                             </a>
                         </div>
-                    </li>
+                    </div>
                 {% else %}
-                    <li class="rgh"><a href="/register/get-form">
-                        Sign up</a></li>
-				    <li class="rgh"><a href="/login/get-form">Sign in</a></li>
+                    <a href="/register/get-form">
+                        <i class="fa fa-user-plus"></i> Sign up
+                    </a>
+                    <a href="/login/get-form">
+                        <i class="fa fa-sign-in"></i> Sign in
+                    </a>
                 {% endif %}
-            </ul>
-		</div>
+            </div>
+            <!-- COLLAPSE NAVBAR BUTTON -->
+            <a href="javascript:void(0);" class="trigram"
+                onclick="collapseNav()">&#9776;
+            </a>
+        </nav>
 
+        <!-- MAIN BLOCK -->
 		{% block content %}{% endblock %}
 
+        <!-- FOOTER -->
+        <footer class="row">
+            <div class="col-1"></div>
+            <div class="col-3">
+                <p>Developed by <span>Vex</span>, 2018.</p>
+                <p>Contact: <span>samplemail@mail.com</span></p>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-3">
+                <a href="https://www.linkedin.com/" class="fa fa-linkedin"
+                    target="_blank"></a>
+                <a href="https://twitter.com/" class="fa fa-twitter"
+                    target="_blank"></a>
+                <a href="https://www.facebook.com/" class="fa fa-facebook"
+                    target="_blank"></a>
+            </div>
+            <div class="col-1"></div>
+        </footer>
+
+        <!-- LOAD JS -->
         <script src="/src/views/js/layout.js"></script>
     </body>
 

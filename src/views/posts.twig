@@ -12,29 +12,32 @@
 
 {% block content %}
 
-    {% if not isAuth %}
-        <p id="plsi">Please, sign in to add new articles</p>
-    {% endif %}
-
-{% for post in posts %}
-    <div id="sec1">
-        <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
-        <hr>
-        <div id="sec1-1">
-            <div>
-                <i class="fa">&#xf017;</i>
-                <p>{{ post.date }}</p>
-                <p>|</p>
-                <i class="fa">&#xf007;</i>
-                <p>Posted by: {{ post.name }}</p>
-                <p>|</p>
-                <i class="fa">&#xf075;</i>
-            </div>
+    <!-- MAIN DIV ELEMENT -->
+    <div id="main" class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            {% for post in posts %}
+                <div class="post-content">
+                    <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
+                    <hr>
+                    <div class="post-info">
+                        <i class="fa">&#xf017;</i>
+                        <p>{{ post.date }}</p>
+                        <p>|</p>
+                        <i class="fa">&#xf007;</i>
+                        <p>Posted by: {{ post.name }}</p>
+                        <p>|</p>
+                        <i class="fa">&#xf075;</i>
+                    </div>
+                    <div class="pst-cnt">{{ post.content }}</div>
+                </div>
+            {% endfor %}
         </div>
-        <div class="pst-cnt">{{ post.content }}</div>
+        <div class="col-3"></div>
     </div>
-{% endfor %}
 
+
+    <!-- PAGINATION -->
     <div id="pagination">
         {% if currentPage != 1 %}
             <a class="pgs" href="/posts/1">&laquo First Page<a>
@@ -55,5 +58,6 @@
         {% endif %}
     </div>
 
+    <!-- LOAD JS -->
     <script src="/src/views/js/posts.js"></script>
 {% endblock %}

@@ -1,4 +1,3 @@
-/* **************************** DIV ELEMENTS **************************** */
 /* The ::after selector inserts something after the content of each selected
    element(s).
    Use the content property to specify the content to insert.
@@ -27,6 +26,15 @@
     width: 100%;
 }
 
+@media only screen and (max-width: 768px) {
+    #main div:first-child {
+        display: none;
+    }
+    #main div:nth-child(3) {
+        margin-top: 5%;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     /* For desktop */
     /* One class for the each of the 12 responsive grid-view columns */
@@ -44,71 +52,45 @@
     #main .col-12 {width: 100%;}
 }
 
-@media only screen and (max-width: 768px) {
-    #main #container input[type=submit] {
-        width: 100%;
-    }
+/* **************************** DIV ELEMENTS **************************** */
+#main {
+    margin: 2.5em 2em;
 }
 
-/* ---------- PROFILE SECTION ----------- */
-/* Section 1 */
-#main #section {
-	border-radius: 5px;
-    background: rgba(54, 69, 79, 0.1);
-    padding: 3% 7%;
-    margin: 5% 0% 5% 0%;
+#main div:first-child {
+    background: rgba(51, 51, 51, 0.1);
 }
 
-/* Image section */
-#main #section #img-cont {
-    position: relative;
-    width: 25%;
-    margin: 4% 0% 10% 0%;
+#main div:first-child p {
+    margin: 2em 1em;
+    padding: 1em;
 }
 
-#main #section img {
-    display: block;
-    width: 100%;
-    border: 1px solid #afafaf;
-    border-radius: 5px;
+#main div:first-child ul li {
+    list-style-type: none;
+    background-color: #398564;
+    color: #ffffff;
+    padding: 0.5em 0em;
+    margin: 0.5em;
+    width: 7em;
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.4s;
+    box-shadow: 3px 2px 7px #252e42;
 }
 
-#main #section #overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0px 0px 5px 5px;
-  color: white;
-  width: 100%;
-  transition: 0.5s;
-  opacity: 0;
-  color: white;
-  font-size: 0.7em;
-  padding: 1em;
-  text-align: center;
-  cursor: pointer;
+#main div:nth-child(2) {
+    padding: 3em 5em;
 }
 
-#main #section #img-cont:hover #overlay {
-  opacity: 1;
+#main div:nth-child(3) img {
+    max-width: 120px;
+    padding: 3%;
+    margin: 0% auto 0% auto;
+    transition: 0.5s;
 }
 
-/* Horizontal line */
-#main #section hr {
-    border: 1px solid #afafaf;
-    margin-bottom: 25px;
-}
-
-#main #section #show:hover {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#main #section #stats {
-	display: none;
-}
-
-#main #section #stats p {
-	font-size: 0.8em;
-	padding-left: 5%;
+#main div:nth-child(3) img:hover {
+    opacity: 0.7;
 }

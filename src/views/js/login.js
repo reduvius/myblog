@@ -1,6 +1,7 @@
+// Validate login form
 function validateForm() {
-    var x = document.forms["nwf1"]["email"].value;
-    var y = document.forms["nwf1"]["password"].value;
+    var x = document.forms["login"]["email"].value;
+    var y = document.forms["login"]["password"].value;
     if (x == "") {
         alert("Email must be filled out");
         return false;

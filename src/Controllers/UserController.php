@@ -7,10 +7,12 @@ use MyBlog\Domain\User\UserFactory;
 use MyBlog\Models\PostModel;
 
 class UserController extends AbstractController {
+    // Get registration form
     public function getRegisterForm(): string {
         return $this->render('register.twig', []);
 	}
 
+    // Register new user
 	public function register(): string {
         if (!$this->request->isPost()) {
 			return $this->render('register.twig', []);
@@ -54,10 +56,12 @@ class UserController extends AbstractController {
         return $this->getLoginForm();
     }
 
+    // Get login form
 	public function getLoginForm(): string {
         return $this->render('login.twig', []);
 	}
 
+    // Login user
 	public function login(): string {
 		if (!$this->request->isPost()) {
 			return $this->render('login.twig', []);
@@ -91,12 +95,14 @@ class UserController extends AbstractController {
 
 		setcookie('user', $user->getId());
 
-        header('Location: /my-posts');
+        // The header() function sends a raw HTTP header to a client.
+        header('Location: /');
 
         $newController = new PostController($this->di, $this->request);
 		return $newController->getPostsByUser();
     }
 
+    // Logout
     public function logout(): string {
         setcookie('user', "", time()-3600);
 
@@ -106,6 +112,7 @@ class UserController extends AbstractController {
 		return $newController->getAllPosts();
     }
 
+    // Get user profile info
     public function getProfile(): string {
         $userModel = new UserModel($this->db);
         $user = $userModel->getUserById($this->userId);

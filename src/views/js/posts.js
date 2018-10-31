@@ -4,6 +4,7 @@ $(document).ready(function() {
     });
 });
 
+// More/less text function
 $(document).ready(function() {
 	var truncLength = 250;
 

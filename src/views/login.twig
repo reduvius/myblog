@@ -7,37 +7,50 @@
 {% block css %}
 {{ parent() }}
 
-    <link rel="stylesheet" href="/src/views/css/logreg.css" />
+    <link rel="stylesheet" href="/src/views/css/log-reg.css" />
 {% endblock %}
 
 {% block content %}
-    <div id="log-reg">
-        <h2 class="component">Login</h2>
 
-        {% if errorMessage is defined %}
-            <strong>{{ errorMessage }}</strong>
-        {% endif %}
+    <!-- MAIN DIV ELEMENT -->
+    <div id="main" class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <!-- FORM ELEMENT -->
+            <div id="container">
+                <div>
+                    <h1>Sign In</h1>
+                    <hr>
 
-        <form name="nwf1" method="POST" action="/login"
-            onsubmit="return validateForm()">
-            <div class="component">
-                <label for="email">Email</label>
-                <input type="email" name="email" />
-            </div>
-            <div class="component">
-                <label for="password">Password</label>
-                <input type="password" name="password" />
-            </div>
-            <div class="component">
-                <button class="button" type="submit">Login</button>
-            </div>
-        </form>
+                    {% if errorMessage is defined %}
+                        <p id="err"><strong>{{ errorMessage }}</strong></p>
+                    {% endif %}
+                </div>
 
-        <p class="component">Don't have an account?</p>
-        <div class="component">
-            <a class="button" href="/register/get-form">Register</a>
+                <form name="login" method="post" action="/login"
+                    onsubmit="return validateForm()">
+                    <label for="email"><i class="fa fa-envelope"></i>
+                        <b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email">
+
+                    <label for="password"><i class="fa fa-key"></i>
+                        <b>Password</b></label>
+                    <input type="password" placeholder="Enter Password"
+                        name="password">
+
+                    <hr>
+
+                    <input type="submit" value="Register">
+                </form>
+
+                <p id="bt">Don't have an account? <a href="/register/get-form">
+                    Sign up</a>.
+                </p>
+            </div>
         </div>
+        <div class="col-4"></div>
     </div>
 
+    <!-- LOAD JS -->
     <script src="/src/views/js/login.js"></script>
 {% endblock %}

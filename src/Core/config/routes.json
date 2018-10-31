@@ -1,5 +1,9 @@
 {
   "": {
+    "controller": "Welcome",
+  	"method": "getWelcomePage"
+  },
+  "posts": {
     "controller": "Post",
 	"method": "getAllPosts"
   },

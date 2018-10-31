@@ -1,17 +1,29 @@
-// nacin da se ovo dole odradi u cistom JS-u
-/*function hdpAct() {
-    var p1 = document.getElementById('hdp1')
-    var p2 = document.getElementById('hdp2');
-    p1.style.marginLeft='-5em';
-    p2.style.marginLeft='6em';
-}*/
+// Hover effect for header span elements
+// Two inner functions: inFunction, outFunction
+$(document).ready(function(){
+    var span = $("header p span");
 
-$(document).ready(function() {
-    var p1 = $("header p:first-child");
-    var p2 = $("header p:last-child");
-
-    $("header").hover(function() {
-        p1.css("marginLeft", "-5em")
-        p2.css("marginLeft", "6em")
+    $("header").hover(function(){
+        span.css({
+            "color": "#e0301e",
+            "padding": "0em 1em"
+        });
+        }, function(){
+        span.css({
+            "color": "white",
+            "padding": "0em 0em"
+        });
     });
-})
+});
+
+/* Toggle between adding and removing the "responsive" class to topnav when
+    the user clicks on the icon */
+function collapseNav() {
+    var x = document.getElementById("myTopnav");
+
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}

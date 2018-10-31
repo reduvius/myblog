@@ -7,40 +7,60 @@
 {% block css %}
 {{ parent() }}
 
-    <link rel="stylesheet" href="/src/views/css/logreg.css" />
+    <link rel="stylesheet" href="/src/views/css/log-reg.css" />
 {% endblock %}
 
 {% block content %}
-    <div id="log-reg">
-        <h2 class="component">Account registration</h2>
 
-        {% if errorMessage is defined %}
-            <strong>{{ errorMessage }}</strong>
-        {% endif %}
+    <!-- MAIN DIV ELEMENT -->
+    <div id="main" class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <!-- FORM ELEMENT -->
+            <div id="container">
+                <div>
+                    <h1>Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+                    <hr>
 
-        <form name="nwf1" method="post" action="/register"
-            onsubmit="return validateForm()">
-            <div class="component">
-                <label for="name">Name</label>
-                <input type="text" name="name" />
+                    {% if errorMessage is defined %}
+                        <p id="err"><strong>{{ errorMessage }}</strong></p>
+                    {% endif %}
+                </div>
+
+                <form name="reg" method="post" action="/register"
+                    onsubmit="return validateForm()">
+                    <label for="name"><i class="fa fa-user"></i>
+                        <b>Username</b></label>
+                    <input type="text" placeholder="Enter Username" name="name">
+
+                    <label for="email"><i class="fa fa-envelope"></i>
+                        <b>Email</b></label>
+                    <input type="email" placeholder="Enter Email" name="email">
+
+                    <label for="password"><i class="fa fa-key"></i>
+                        <b>Password</b></label>
+                    <input type="password" placeholder="Enter Password"
+                        name="password">
+
+                    <label for="password_confirm"><i class="fa fa-key"></i>
+                        <b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password"
+                        name="password_confirm">
+
+                    <hr>
+
+                    <input type="submit" value="Register">
+                </form>
+
+                <p id="bt">Already have an account? <a href="/login/get-form">
+                    Sign in</a>.
+                </p>
             </div>
-            <div class="component">
-                <label for="email">Email</label>
-                <input type="email" name="email" />
-            </div>
-            <div class="component">
-                <label for="password">Password</label>
-                <input type="password" name="password" />
-            </div>
-            <div class="component">
-                <label for="password_confirm">Password confirmation</label>
-                <input type="password" name="password_confirm" />
-            </div>
-            <div class="component">
-                <button class="button" type="submit">Create</button>
-            </div>
-        </form>
+        </div>
+        <div class="col-4"></div>
     </div>
 
+    <!-- LOAD JS -->
     <script src="/src/views/js/register.js"></script>
 {% endblock %}

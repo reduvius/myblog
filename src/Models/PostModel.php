@@ -8,6 +8,7 @@ use PDO;
 class PostModel extends AbstractModel {
 	const CLASSNAME = '\MyBlog\Domain\Post';
 
+    // Get post by id
 	public function getPostById(int $id): Post {
 		$query = <<<SQL
 SELECT p.id, p.date, p.title, p.content, p.user_id, u.name
@@ -27,6 +28,7 @@ SQL;
 		return $post[0];
 	}
 
+    // Get posts by user id
 	public function getPostsByUserId(
 		int $userId,
 		int $page,
@@ -51,6 +53,7 @@ SQL;
 		return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
 	}
 
+    // Count number of posts from certain user
 	public function countPostsByUser(int $userId): int {
 		$query = <<<SQL
 SELECT COUNT(*)
@@ -64,6 +67,7 @@ SQL;
 		return $countPosts[0];
 	}
 
+    // Get all posts
 	public function getAllPosts(int $page, int $pageLength): array {
 		$start = $pageLength * ($page - 1);
 
@@ -82,6 +86,7 @@ SQL;
 		return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
 	}
 
+    // Count all posts
 	public function countPosts(): int {
 		$countPosts = $this->db->query('SELECT COUNT(*) FROM posts');
 		$countPosts = $countPosts->fetch();
@@ -89,6 +94,7 @@ SQL;
 		return $countPosts[0];
 	}
 
+    // Search posts by title
 	public function search(string $title): array {
 		$query = <<<SQL
 SELECT p.id, p.date, p.title, p.content, p.user_id, u.name
@@ -110,6 +116,7 @@ SQL;
 		return $posts;
 	}
 
+    // Create new post
 	public function createNewPost(Post $post) {
 		$query = <<<SQL
 INSERT INTO posts (date, title, content, user_id)
@@ -124,6 +131,7 @@ SQL;
 		}
 	}
 
+    // Delete post
 	public function deletePost(int $id) {
         $query = 'DELETE FROM posts WHERE id = :id';
 		$sth = $this->db->prepare($query);

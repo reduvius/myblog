@@ -1,8 +1,9 @@
+// Validate registration form
 function validateForm() {
-    var a = document.forms["nwf1"]["name"].value;
-    var b = document.forms["nwf1"]["email"].value;
-    var c = document.forms["nwf1"]["password"].value;
-    var d = document.forms["nwf1"]["password_confirm"].value;
+    var a = document.forms["reg"]["name"].value;
+    var b = document.forms["reg"]["email"].value;
+    var c = document.forms["reg"]["password"].value;
+    var d = document.forms["reg"]["password_confirm"].value;
     if (a == "") {
         alert("Name must be filled out");
         return false;
