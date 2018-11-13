@@ -9,34 +9,31 @@
 {% endblock %}
 
 {% block content %}
-    <!-- MAIN DIV ELEMENT -->
-    <div id="main" class="row">
-        <div class="col-3"></div>
-        <div class="col-6">
-            <!-- NEW POST FORM -->
-            <div id="container">
-                <h2>Add new post</h2>
+    <div class="col-3"></div>
+    <div class="col-6">
+        <!-- NEW POST FORM -->
+        <div id="container">
+            <h2>Add new post</h2>
 
-                {% if errorMessage is defined %}
-                    <strong>{{ errorMessage }}</strong>
-                {% endif %}
+            {% if errorMessage is defined %}
+                <strong>{{ errorMessage }}</strong>
+            {% endif %}
 
-                <form name="new-form" method="post" action="/new"
-                    onsubmit="return validateForm()">
-                    <label for="title"><i class="fa fa-pencil"></i>
-                        Title</label>
-                    <input type="text" name="title">
+            <form name="new-form" method="post" action="/new"
+                onsubmit="return validateForm()">
+                <label for="title"><i class="fa fa-pencil"></i>Title</label>
+                <input type="text" name="title">
 
-                    <label for="content"><i class="fa fa-align-justify"></i>
-                        Text</label>
-                    <textarea name="content" rows="12"></textarea>
+                <label for="content">
+                    <i class="fa fa-align-justify"></i>Text
+                </label>
+                <textarea name="content" rows="12"></textarea>
 
-                    <input type="submit" value="Save">
-                </form>
-            </div>
+                <input type="submit" value="Save">
+            </form>
         </div>
-        <div class="col-3"></div>
     </div>
+    <div class="col-3"></div>
 {% endblock %}
 
 {% block js %}

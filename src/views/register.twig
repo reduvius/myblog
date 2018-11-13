@@ -9,54 +9,55 @@
 {% endblock %}
 
 {% block content %}
-    <!-- MAIN DIV ELEMENT -->
-    <div id="main" class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <!-- FORM ELEMENT -->
-            <div id="container">
-                <div>
-                    <h1>Sign Up</h1>
-                    <p>Please fill in this form to create an account.</p>
-                    <hr>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <!-- FORM ELEMENT -->
+        <div id="container">
+            <div>
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
 
-                    {% if errorMessage is defined %}
-                        <p id="err"><strong>{{ errorMessage }}</strong></p>
-                    {% endif %}
-                </div>
-
-                <form name="reg" method="post" action="/register"
-                    onsubmit="return validateForm()">
-                    <label for="name"><i class="fa fa-user"></i>
-                        <b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" name="name">
-
-                    <label for="email"><i class="fa fa-envelope"></i>
-                        <b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="email">
-
-                    <label for="password"><i class="fa fa-key"></i>
-                        <b>Password</b></label>
-                    <input type="password" placeholder="Enter Password"
-                        name="password">
-
-                    <label for="password_confirm"><i class="fa fa-key"></i>
-                        <b>Repeat Password</b></label>
-                    <input type="password" placeholder="Repeat Password"
-                        name="password_confirm">
-
-                    <hr>
-
-                    <input type="submit" value="Register">
-                </form>
-
-                <p id="bt">Already have an account? <a href="/login/get-form">
-                    Sign in</a>.
-                </p>
+                {% if errorMessage is defined %}
+                    <p id="err"><strong>{{ errorMessage }}</strong></p>
+                {% endif %}
             </div>
+
+            <form name="reg" method="post" action="/register"
+                onsubmit="return validateForm()">
+                <label for="name">
+                    <i class="fa fa-user"></i><b>Username</b>
+                </label>
+                <input type="text" placeholder="Enter Username" name="name">
+
+                <label for="email">
+                    <i class="fa fa-envelope"></i><b>Email</b>
+                </label>
+                <input type="email" placeholder="Enter Email" name="email">
+
+                <label for="password">
+                    <i class="fa fa-key"></i><b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password"
+                    name="password">
+
+                <label for="password_confirm">
+                    <i class="fa fa-key"></i><b>Repeat Password</b>
+                </label>
+                <input type="password" placeholder="Repeat Password"
+                    name="password_confirm">
+
+                <hr>
+
+                <input type="submit" value="Register">
+            </form>
+
+            <p id="bt">Already have an account?
+                <a href="/login/get-form">Sign in</a>.
+            </p>
         </div>
-        <div class="col-4"></div>
     </div>
+    <div class="col-4"></div>
 {% endblock %}
 
 {% block js %}

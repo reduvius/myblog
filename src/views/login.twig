@@ -9,44 +9,43 @@
 {% endblock %}
 
 {% block content %}
-    <!-- MAIN DIV ELEMENT -->
-    <div id="main" class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <!-- FORM ELEMENT -->
-            <div id="container">
-                <div>
-                    <h1>Sign In</h1>
-                    <hr>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <!-- FORM ELEMENT -->
+        <div id="container">
+            <div>
+                <h1>Sign In</h1>
+                <hr>
 
-                    {% if errorMessage is defined %}
-                        <p id="err"><strong>{{ errorMessage }}</strong></p>
-                    {% endif %}
-                </div>
-
-                <form name="login" method="post" action="/login"
-                    onsubmit="return validateForm()">
-                    <label for="email"><i class="fa fa-envelope"></i>
-                        <b>Email</b></label>
-                    <input type="email" placeholder="Enter Email" name="email">
-
-                    <label for="password"><i class="fa fa-key"></i>
-                        <b>Password</b></label>
-                    <input type="password" placeholder="Enter Password"
-                        name="password">
-
-                    <hr>
-
-                    <input type="submit" value="Register">
-                </form>
-
-                <p id="bt">Don't have an account? <a href="/register/get-form">
-                    Sign up</a>.
-                </p>
+                {% if errorMessage is defined %}
+                    <p id="err"><strong>{{ errorMessage }}</strong></p>
+                {% endif %}
             </div>
+
+            <form name="login" method="post" action="/login"
+                onsubmit="return validateForm()">
+                <label for="email">
+                    <i class="fa fa-envelope"></i><b>Email</b>
+                </label>
+                <input type="email" placeholder="Enter Email" name="email">
+
+                <label for="password">
+                    <i class="fa fa-key"></i><b>Password</b>
+                </label>
+                <input type="password" placeholder="Enter Password"
+                    name="password">
+
+                <hr>
+
+                <input type="submit" value="Register">
+            </form>
+
+            <p id="bt">Don't have an account?
+                <a href="/register/get-form">Sign up</a>.
+            </p>
         </div>
-        <div class="col-4"></div>
     </div>
+    <div class="col-4"></div>
 {% endblock %}
 
 {% block js %}

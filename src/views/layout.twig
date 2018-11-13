@@ -9,8 +9,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- LOAD CSS -->
         <link rel="stylesheet" href="/src/views/css/layout.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         {% block css %} {% endblock %}
+        <!-- LOAD ICONS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <!-- LOAD jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
@@ -72,8 +73,10 @@
             </a>
         </nav>
 
-        <!-- MAIN BLOCK -->
-		{% block content %}{% endblock %}
+        <!-- CONTENT BLOCK -->
+        <div id="main" class="row">
+		    {% block content %}{% endblock %}
+        </div>
 
         <!-- FOOTER -->
         <footer class="row">

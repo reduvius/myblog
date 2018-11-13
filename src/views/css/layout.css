@@ -237,6 +237,52 @@ nav .trigram {
     }
 }
 
+/* **************************** CONTENT BLOCK *************************** */
+/* The ::after selector inserts something after the content of each selected
+   element(s).
+   Use the content property to specify the content to insert.
+   Use the ::before selector to insert something before the content.
+   The clear property specifies on which sides of an element floating elements
+   are not allowed to float.
+
+   The columns inside a row are all floating to the left, and are therefore
+   taken out of the flow of the page, and other elements will be placed as
+   if the columns do not exist. To prevent this, we will add a style that
+   clears the flow. */
+#main.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* For all collumns */
+#main [class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+/* For mobile phones */
+#main [class*="col-"] {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop */
+    /* One class for the each of the 12 responsive grid-view columns */
+    #main .col-1 {width: 8.33%;}
+    #main .col-2 {width: 16.66%;}
+    #main .col-3 {width: 25%;}
+    #main .col-4 {width: 33.33%;}
+    #main .col-5 {width: 41.66%;}
+    #main .col-6 {width: 50%;}
+    #main .col-7 {width: 58.33%;}
+    #main .col-8 {width: 66.66%;}
+    #main .col-9 {width: 75%;}
+    #main .col-10 {width: 83.33%;}
+    #main .col-11 {width: 91.66%;}
+    #main .col-12 {width: 100%;}
+}
+
 /* ******************************* FOOTER ******************************* */
 footer {
     background: rgba(51, 51, 51, 0.9);

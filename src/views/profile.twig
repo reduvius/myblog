@@ -9,29 +9,26 @@
 {% endblock %}
 
 {% block content %}
-    <!-- MAIN DIV ELEMENT -->
-    <div id="main" class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <!-- PROFILE SECTION -->
-            <div id="section">
-                <div id="img-cont">
-                    <img src="../../src/storage/images/avatars/default-img.png"
-                        alt="Avatar">
-                    <div id="overlay">Change your avatar</div>
-                </div>
-                <p><i class="fa fa-user"></i> Name: {{ user.name }}</p>
-                <hr>
-                <p><i class="fa fa-envelope"></i> Email: {{ user.email }}</p>
-                <hr>
-                <p><i class="fa fa-key"></i> Password</p>
-                <hr>
-                <p id="show">Show stats ▾</p>
-                <p id="stats">• Number of posts: {{ numberOfPosts }}</p>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <!-- PROFILE SECTION -->
+        <div id="section">
+            <div id="img-cont">
+                <img src="../../src/storage/images/avatars/default-img.png"
+                    alt="Avatar">
+                <div id="overlay">Change your avatar</div>
             </div>
+            <p><i class="fa fa-user"></i> Name: {{ user.name }}</p>
+            <hr>
+            <p><i class="fa fa-envelope"></i> Email: {{ user.email }}</p>
+            <hr>
+            <p><i class="fa fa-key"></i> Password</p>
+            <hr>
+            <p id="show">Show stats ▾</p>
+            <p id="stats">• Number of posts: {{ numberOfPosts }}</p>
         </div>
-        <div class="col-4"></div>
     </div>
+    <div class="col-4"></div>
 {% endblock %}
 
 {% block js %}
