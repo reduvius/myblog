@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-4"></div>
-    <div class="col-4">
+    <div class="col-4 col-s-3"></div>
+    <div class="col-4 col-s-6">
         <!-- FORM ELEMENT -->
         <div id="container">
             <div>
@@ -25,12 +25,12 @@
             <form name="login" method="post" action="/login"
                 onsubmit="return validateForm()">
                 <label for="email">
-                    <i class="fa fa-envelope"></i><b>Email</b>
+                    <i class="fa fa-envelope"></i><b> Email</b>
                 </label>
                 <input type="email" placeholder="Enter Email" name="email">
 
                 <label for="password">
-                    <i class="fa fa-key"></i><b>Password</b>
+                    <i class="fa fa-key"></i><b> Password</b>
                 </label>
                 <input type="password" placeholder="Enter Password"
                     name="password">
@@ -45,7 +45,7 @@
             </p>
         </div>
     </div>
-    <div class="col-4"></div>
+    <div class="col-4 col-s-3"></div>
 {% endblock %}
 
 {% block js %}

@@ -28,7 +28,7 @@ body {
 
 /* *************************** HEADER STYLE ***************************** */
 header {
-    background: url('../../storage/images/backgrounds/bckg7.jpg') ;
+    background: url('../../storage/images/backgrounds/bckg7.jpg');
     /*background-color: #509fb9;*/
     color: white;
     box-shadow: 0px 7px 5px #252e42;
@@ -43,10 +43,6 @@ header {
 
 header p span {
     transition: 0.6s;
-}
-
-header:hover {
-	opacity: 0.9;
 }
 
 @media screen and (max-width: 768px) {
@@ -266,9 +262,26 @@ nav .trigram {
     width: 100%;
 }
 
+/* First break point */
+/* One class for the each of the 12 responsive grid-view columns */
 @media only screen and (min-width: 768px) {
-    /* For desktop */
-    /* One class for the each of the 12 responsive grid-view columns */
+    #main .col-s-1 {width: 8.33%;}
+    #main .col-s-2 {width: 16.66%;}
+    #main .col-s-3 {width: 25%;}
+    #main .col-s-4 {width: 33.33%;}
+    #main .col-s-5 {width: 41.66%;}
+    #main .col-s-6 {width: 50%;}
+    #main .col-s-7 {width: 58.33%;}
+    #main .col-s-8 {width: 66.66%;}
+    #main .col-s-9 {width: 75%;}
+    #main .col-s-10 {width: 83.33%;}
+    #main .col-s-11 {width: 91.66%;}
+    #main .col-s-12 {width: 100%;}
+}
+
+/* Second break point */
+/* One class for the each of the 12 responsive grid-view columns */
+@media only screen and (min-width: 1080px) {
     #main .col-1 {width: 8.33%;}
     #main .col-2 {width: 16.66%;}
     #main .col-3 {width: 25%;}
@@ -287,23 +300,35 @@ nav .trigram {
 footer {
     background: rgba(51, 51, 51, 0.9);
     color: white;
-    padding: 1em;
+    padding: 1.6em 0em;
     z-index: 10;
+    height: 8em;
 }
 
-footer div:nth-child(2) p span {
+footer #l-footer {
+    float: left;
+    margin-left: 10%;
+    font-size: 0.9em;
+}
+
+footer #l-footer p span {
     transition: all 0.8s;
     cursor: pointer;
 }
 
-footer :nth-child(2) p span:hover {
+footer #l-footer p span:hover {
     color: #ffe400;
 }
 
-footer a.fa {
+footer #r-footer {
+    float: right;
+    margin-right: 10%;
+}
+
+footer #r-footer a.fa {
     padding: 0.5em;
     margin: 1.4em 0.3em;
-    font-size: 1.3em;
+    font-size: 1.1em;
     width: 2.1em;
     height: 2.1em;
     text-align: center;
@@ -313,65 +338,29 @@ footer a.fa {
     transition: 0.4s;
 }
 
-footer a.fa.fa-facebook {
+footer #r-footer a.fa.fa-facebook {
     background-color: #3B5998;
 }
 
-footer a.fa.fa-facebook:hover {
+footer #r-footer a.fa.fa-facebook:hover {
     background-color: white;
     color: #3B5998;
 }
 
-footer a.fa.fa-twitter {
+footer #r-footer a.fa.fa-twitter {
     background-color: #55ACEE;
 }
 
-footer a.fa.fa-twitter:hover {
+footer #r-footer a.fa.fa-twitter:hover {
     background-color: white;
     color: #55ACEE;
 }
 
-footer a.fa.fa-linkedin {
+footer #r-footer a.fa.fa-linkedin {
     background-color: #007bb5;
 }
 
-footer a.fa.fa-linkedin:hover {
+footer #r-footer a.fa.fa-linkedin:hover {
     background-color: white;
     color: #007bb5;
-}
-
-footer.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* For all collumns */
-footer [class*="col-"] {
-    float: left;
-    padding: 15px;
-}
-
-/* For mobile phones */
-footer [class*="col-"] {
-    width: 100%;
-    text-align: center;
-    padding: 0.1em;
-}
-
-@media only screen and (min-width: 768px) {
-    /* For desktop */
-    /* One class for the each of the 12 responsive grid-view columns */
-    footer .col-1 {width: 8.33%;}
-    footer .col-2 {width: 16.66%;}
-    footer .col-3 {width: 25%;}
-    footer .col-4 {width: 33.33%;}
-    footer .col-5 {width: 41.66%;}
-    footer .col-6 {width: 50%;}
-    footer .col-7 {width: 58.33%;}
-    footer .col-8 {width: 66.66%;}
-    footer .col-9 {width: 75%;}
-    footer .col-10 {width: 83.33%;}
-    footer .col-11 {width: 91.66%;}
-    footer .col-12 {width: 100%;}
 }

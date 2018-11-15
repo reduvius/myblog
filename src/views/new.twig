@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-3"></div>
-    <div class="col-6">
+    <div class="col-3 col-s-1"></div>
+    <div class="col-6 col-s-10">
         <!-- NEW POST FORM -->
         <div id="container">
             <h2>Add new post</h2>
@@ -21,11 +21,11 @@
 
             <form name="new-form" method="post" action="/new"
                 onsubmit="return validateForm()">
-                <label for="title"><i class="fa fa-pencil"></i>Title</label>
+                <label for="title"><i class="fa fa-pencil"></i> Title</label>
                 <input type="text" name="title">
 
                 <label for="content">
-                    <i class="fa fa-align-justify"></i>Text
+                    <i class="fa fa-align-justify"></i> Text
                 </label>
                 <textarea name="content" rows="12"></textarea>
 
@@ -33,7 +33,7 @@
             </form>
         </div>
     </div>
-    <div class="col-3"></div>
+    <div class="col-3 col-s-1"></div>
 {% endblock %}
 
 {% block js %}

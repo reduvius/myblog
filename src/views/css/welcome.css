@@ -2,7 +2,7 @@
     #main div:first-child {
         display: none;
     }
-    #main div:nth-child(3) {
+    #main div:last-child {
         margin-top: 5%;
     }
 }
