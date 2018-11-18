@@ -336,31 +336,34 @@ footer #r-footer {
     margin-right: 10%;
 }
 
-footer #r-footer a.fa {
+footer #r-footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer #r-footer a i {
     padding: 0.5em;
     margin: 1.4em 0.3em;
     font-size: 1.1em;
     width: 2.1em;
     height: 2.1em;
     text-align: center;
-    text-decoration: none;
     border: 1px solid white;
     border-radius: 1.1em;
-    color: white;
     transition: 0.4s;
 }
 
-footer #r-footer a.fa.fa-facebook:hover {
+footer #r-footer a i.fa-facebook-f:hover {
     background-color: white;
     color: #3B5998;
 }
 
-footer #r-footer a.fa.fa-twitter:hover {
+footer #r-footer a i.fa-twitter:hover {
     background-color: white;
     color: #55ACEE;
 }
 
-footer #r-footer a.fa.fa-linkedin:hover {
+footer #r-footer a i.fa-linkedin-in:hover {
     background-color: white;
     color: #007bb5;
 }

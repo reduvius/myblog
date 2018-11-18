@@ -17,13 +17,13 @@
                 <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
                 <hr>
                 <div class="post-info">
-                    <i class="fa">&#xf017;</i>
+                    <i class='fas fa-clock'></i>
                     <p>{{ post.date }}</p>
                     <p>|</p>
-                    <i class="fa">&#xf007;</i>
+                    <i class='fas fa-user'></i>
                     <p>Posted by: {{ post.name }}</p>
                     <p>|</p>
-                    <i class="fa">&#xf075;</i>
+                    <i class='fas fa-comment'></i>
                 </div>
                 <div class="pst-cnt">{{ post.content }}</div>
             </div>
@@ -34,8 +34,12 @@
     <!-- PAGINATION -->
     <div class="col-12" id="pagination">
         {% if currentPage != 1 %}
-            <a class="pgs" href="/posts/1">&laquo First Page<a>
-            <a class="pgs" href="/posts/{{ currentPage - 1 }}">&lsaquo;</a>
+            <a class="pgs" href="/posts/1">
+                <i class='fas fa-angle-double-left'></i> First Page
+            </a>
+            <a class="pgs" href="/posts/{{ currentPage - 1 }}">
+                <i class='fas fa-angle-left'></i>
+            </a>
         {% endif %}
 
         {% for page in pagesArray %}
@@ -47,8 +51,12 @@
         {% endfor %}
 
         {% if currentPage < lastPage %}
-            <a class="pgs" href="/posts/{{ currentPage + 1 }}">&rsaquo;</a>
-            <a class="pgs" href="/posts/{{ lastPage }}">Last Page &raquo<a>
+            <a class="pgs" href="/posts/{{ currentPage + 1 }}">
+                <i class='fas fa-angle-right'></i>
+            </a>
+            <a class="pgs" href="/posts/{{ lastPage }}">
+                Last Page <i class='fas fa-angle-double-right'></i>
+            </a>
         {% endif %}
     </div>
 

@@ -21,13 +21,13 @@
             <hr>
             <div id="sec1">
                 <div>
-                    <i class="fa">&#xf017;</i>
+                    <i class='fas fa-clock'></i>
                     <p>{{ post.date }}</p>
                     <p>|</p>
-                    <i class="fa">&#xf007;</i>
+                    <i class='fas fa-user'></i>
                     <p>Posted by: {{ post.name }}</p>
                     <p>|</p>
-                    <i class="fa">&#xf075;</i>
+                    <i class='fas fa-comment'></i>
                 </div>
                 <div>
                     <p id="show-size">Text size <span>▸</span></p>
@@ -42,10 +42,10 @@
                 <p id="comm">Show comment section ▾</p>
                 {% if isAuth and post.userId == uId %}
                     <a id="p-del" href="/delete-post/{{ post.id }}"
-                        title="Delete post"><i class="fa fa-trash-o"></i>
+                        title="Delete post"><i class='far fa-trash-alt'></i>
                     </a>
                     <a id="p-edit" href="/edit-post/{{ post.id }}/get-form"
-                        title="Edit post"><i class="fa">&#xf044;</i></a>
+                        title="Edit post"><i class='far fa-edit'></i></a>
                 {% endif %}
             </div>
         </div>
