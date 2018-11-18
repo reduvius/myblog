@@ -35,7 +35,7 @@
     <div class="col-12" id="pagination">
         {% if currentPage != 1 %}
             <a class="pgs" href="/posts/1">&laquo First Page<a>
-            <a class="pgs" href="/posts/{{ currentPage - 1 }}">‹</a>
+            <a class="pgs" href="/posts/{{ currentPage - 1 }}">&lsaquo;</a>
         {% endif %}
 
         {% for page in pagesArray %}
@@ -47,7 +47,7 @@
         {% endfor %}
 
         {% if currentPage < lastPage %}
-            <a class="pgs" href="/posts/{{ currentPage + 1 }}">›</a>
+            <a class="pgs" href="/posts/{{ currentPage + 1 }}">&rsaquo;</a>
             <a class="pgs" href="/posts/{{ lastPage }}">Last Page &raquo<a>
         {% endif %}
     </div>

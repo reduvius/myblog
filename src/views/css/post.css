@@ -53,8 +53,8 @@
 
 #sec1 div:last-child button {
 	font-size: 0.7em;
-	border: 1px solid #111;
-	border-radius: 10px;
+	border: 1px solid #555555;
+	border-radius: 0.8em;
 	min-width: 1.6em;
 	padding: 0px 5px;
 	display: none;
@@ -63,7 +63,7 @@
 }
 
 #sec1 div:last-child button:hover {
-	background-color: #333;
+	background-color: #555555;
 	color: #f7f7f7;
 	cursor: pointer;
 	transition-duration: 0.4s;

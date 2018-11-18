@@ -41,10 +41,11 @@
             <div id="sec2">
                 <p id="comm">Show comment section ▾</p>
                 {% if isAuth and post.userId == uId %}
-                    <a id="del" href="/delete-post/{{ post.id }}"
+                    <a id="p-del" href="/delete-post/{{ post.id }}"
                         title="Delete post"><i class="fa fa-trash-o"></i>
                     </a>
-                    <a title="Edit post"><i class="fa">&#xf044;</i></a>
+                    <a id="p-edit" href="/edit-post/{{ post.id }}/get-form"
+                        title="Edit post"><i class="fa">&#xf044;</i></a>
                 {% endif %}
             </div>
         </div>

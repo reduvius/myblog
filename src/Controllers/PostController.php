@@ -116,7 +116,7 @@ class PostController extends AbstractController {
 
     // Get form for creating new posts
 	public function newPostGetForm(): string {
-		return $this->render('new.twig', [
+		return $this->render('new-post.twig', [
 			'isAuth' => $this->isAuthenticated()
 		]);
 	}
@@ -124,7 +124,7 @@ class PostController extends AbstractController {
     // Create new post
 	public function newPost(): string {
 		if (!$this->request->isPost()) {
-			return $this->render('new.twig', [
+			return $this->render('new-post.twig', [
 				'isAuth' => $this->isAuthenticated()
 			]);
 		}
@@ -136,7 +136,7 @@ class PostController extends AbstractController {
 				'errorMessage' => 'Title not entered.',
 		        'isAuth' => $this->isAuthenticated()
 			];
-			return $this->render('new.twig', $params);
+			return $this->render('new-post.twig', $params);
 		}
 
         $title = $params->getString('title');
@@ -146,7 +146,7 @@ class PostController extends AbstractController {
 				'errorMessage' => 'Text not entered.',
 		        'isAuth' => $this->isAuthenticated()
 			];;
-			return $this->render('new.twig', $params);
+			return $this->render('new-post.twig', $params);
 		}
 
         $content = $params->getString('content');
@@ -158,12 +158,12 @@ class PostController extends AbstractController {
 		try {
 			$postModel->createNewPost($newPost);
 		} catch (\Exception $e) {
-			$this->log->warn('Error: post not created');
+			$this->log->warn('Error: failed to create new post');
 			$params = [
-				'errorMessage' => 'Error: post not created.',
+				'errorMessage' => 'Error: failed to create new post.',
 		        'isAuth' => $this->isAuthenticated()
 			];
-			return $this->render('new.twig', $params);
+			return $this->render('new-post.twig', $params);
 		}
 
 		return $this->getPostsByUser();
@@ -175,6 +175,68 @@ class PostController extends AbstractController {
 		$postModel->deletePost($id);
 
 		return $this->getPostsByUser();
+	}
+
+	// Get form for post editing
+	public function editPostGetForm(int $id): string {
+		$postModel = new PostModel($this->db);
+
+		$post = $postModel->getPostById($id);
+
+		$properties = [
+			'post' => $post,
+			'isAuth' => $this->isAuthenticated(),
+			'uId' => $this->returnUserCookie(),
+		];
+		return $this->render('edit-post.twig', $properties);
+	}
+
+    // Edit post
+	public function editPost(int $id): string {
+		if (!$this->request->isPost()) {
+			$params = [
+				'errorMessage' => 'Something went wrong. Please try again.',
+		        'isAuth' => $this->isAuthenticated()
+			];;
+			return $this->render('error.twig', $params);
+		}
+
+		$params = $this->request->getParams();
+
+		if (!$params->has('title')) {
+			$params = [
+				'errorMessage' => 'Title not entered.',
+		        'isAuth' => $this->isAuthenticated()
+			];
+			return $this->render('error.twig', $params);
+		}
+
+        $title = $params->getString('title');
+
+		if (!$params->has('content')) {
+			$params = [
+				'errorMessage' => 'Text not entered.',
+		        'isAuth' => $this->isAuthenticated()
+			];;
+			return $this->render('error.twig', $params);
+		}
+
+        $content = $params->getString('content');
+
+		$postModel = new PostModel($this->db);
+
+		try {
+			$postModel->editPost($id, $title, $content);
+		} catch (\Exception $e) {
+			$this->log->warn('Error: failed to edit post');
+			$params = [
+				'errorMessage' => 'Error: Failed to edit post.',
+		        'isAuth' => $this->isAuthenticated()
+			];
+			return $this->render('error.twig', $params);
+		}
+
+		return $this->getPost($id);
 	}
 }
 

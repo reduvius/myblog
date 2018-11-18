@@ -139,6 +139,22 @@ SQL;
 			throw new \Exception($sth->errorInfo()[2]);
 		}
 	}
+
+	// Edit post
+	public function editPost(int $id, string $title, string $content) {
+		$query = <<<SQL
+UPDATE posts
+SET title = :title, content = :content
+WHERE id = :id
+SQL;
+        $sth = $this->db->prepare($query);
+		$sth->bindValue('id', $id);
+        $sth->bindValue('title', $title);
+        $sth->bindValue('content', $content);
+        if (!$sth->execute()) {
+			throw new \Exception($sth->errorInfo()[2]);
+		}
+	}
 }
 
 ?>

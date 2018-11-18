@@ -1,0 +1,41 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    New Article
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/src/views/css/new-post-edit-post.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="col-3 col-s-1"></div>
+    <div class="col-6 col-s-10">
+        <!-- NEW POST FORM -->
+        <div id="container">
+            <h2>Add new post</h2>
+
+            {% if errorMessage is defined %}
+                <p id="err"><strong>{{ errorMessage }}</strong></p>
+            {% endif %}
+
+            <form name="new-form" action="/new" method="post"
+                onsubmit="return validateForm()">
+                <label for="title"><i class="fa fa-pencil"></i> Title</label>
+                <input type="text" name="title">
+
+                <label for="content">
+                    <i class="fa fa-align-justify"></i> Text
+                </label>
+                <textarea name="content" rows="12"></textarea>
+
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+    <div class="col-3 col-s-1"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="/src/views/js/new-post-edit-post.js"></script>
+{% endblock %}

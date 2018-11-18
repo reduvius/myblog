@@ -56,6 +56,22 @@
 	  "id": "number"
 	}
   },
+  "edit-post/:id/get-form": {
+    "controller": "Post",
+    "method": "editPostGetForm",
+    "login": true,
+    "params": {
+	  "id": "number"
+	}
+  },
+  "edit-post/:id": {
+    "controller": "Post",
+    "method": "editPost",
+    "login": true,
+    "params": {
+	  "id": "number"
+	}
+  },
   "register/get-form": {
     "controller": "User",
 	"method": "getRegisterForm"

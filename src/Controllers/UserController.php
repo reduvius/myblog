@@ -48,8 +48,8 @@ class UserController extends AbstractController {
         try {
             $userModel->createNewUser($newUser);
         } catch (\Exception $e) {
-			$this->log->warn('Error: user not created');
-			$params = ['errorMessage' => 'Error: User not created.'];
+			$this->log->warn('Error: failed to create user');
+			$params = ['errorMessage' => 'Error: failed to create user.'];
 			return $this->render('register.twig', $params);
 		}
 
@@ -88,8 +88,8 @@ class UserController extends AbstractController {
 		try {
 			$user = $userModel->getUserByEmlAndPswd($email, $password);
 		} catch (\Exception $e) {
-			$this->log->warn('User not found: ' . $email . ', ' . $password);
-			$params = ['errorMessage' => 'User not found.'];
+			$this->log->warn('No such user: ' . $email . ', ' . $password);
+			$params = ['errorMessage' => 'No such user.'];
 			return $this->render('login.twig', $params);
 		}
 

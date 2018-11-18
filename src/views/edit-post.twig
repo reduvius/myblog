@@ -1,33 +1,29 @@
 {% extends 'layout.twig' %}
 
 {% block title %}
-    New Article
+    Edit Article
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/new.css" />
+    <link rel="stylesheet" href="/src/views/css/new-post-edit-post.css" />
 {% endblock %}
 
 {% block content %}
     <div class="col-3 col-s-1"></div>
     <div class="col-6 col-s-10">
-        <!-- NEW POST FORM -->
+        <!-- EDIT POST FORM -->
         <div id="container">
-            <h2>Add new post</h2>
+            <h2>Edit post</h2>
 
-            {% if errorMessage is defined %}
-                <strong>{{ errorMessage }}</strong>
-            {% endif %}
-
-            <form name="new-form" method="post" action="/new"
-                onsubmit="return validateForm()">
+            <form name="edit-form" action="/edit-post/{{ post.id }}"
+                method="post" onsubmit="return validateForm()">
                 <label for="title"><i class="fa fa-pencil"></i> Title</label>
-                <input type="text" name="title">
+                <input type="text" name="title" value="{{ post.title }}">
 
                 <label for="content">
                     <i class="fa fa-align-justify"></i> Text
                 </label>
-                <textarea name="content" rows="12"></textarea>
+                <textarea name="content" rows="12">{{ post.content }}</textarea>
 
                 <input type="submit" value="Save">
             </form>
@@ -37,5 +33,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/new.js"></script>
+    <script src="/src/views/js/new-post-edit-post.js"></script>
 {% endblock %}

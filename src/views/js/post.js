@@ -37,15 +37,22 @@ $(document).ready(function() {
                 num = parseFloat(defaultSize);
         }
         content.css('fontSize', num);
-        // other way to do the same:
+        // another way to do the same thing:
         //content.animate({fontSize: num}, 200);
     });
 });
 
 // Confirm post delete
 $(document).ready(function() {
-    $("#del").click(function() {
+    $("#p-del").click(function() {
         return confirm('Are you sure you want to delete this post?');
+    });
+});
+
+// Confirm post edit
+$(document).ready(function() {
+    $("#p-edit").click(function() {
+        return confirm('Edit post?');
     });
 });
 

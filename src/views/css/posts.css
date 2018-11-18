@@ -60,28 +60,29 @@
 }
 
 #pagination .pgs, #pgs-act {
-	border-bottom: 3px solid #777777;
+    min-width: 2.1em;
 	padding: 4px 8px;
 	text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 0.7em;
     cursor: pointer;
-    border-radius: 2px;
+	border: 1px solid #555555;
+    border-radius: 1.1em;
     transition-duration: 0.4s;
 }
 
-#pagination .pgs{
+#pagination .pgs {
     color: black;
 }
 
 #pagination .pgs:hover {
-    background-color: #777777;
+    background-color: #555555;
     color: white;
+	border: 1px solid #555555;
 }
 
 #pagination #pgs-act {
     background-color: #555555;
     color: white;
-    border-bottom: 3px solid #555555;
 }

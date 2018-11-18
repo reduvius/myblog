@@ -12,6 +12,14 @@
     margin: 5% 0% 5% 0%;
 }
 
+#main #container #err {
+    color: white;
+    background-color: #e0301e;
+    padding: 1%;
+    margin-top: 2%;
+    border-radius: 5px;
+}
+
 #main #container input[type=text], #main #container textarea {
     width: 100%;
     padding: 12px;
