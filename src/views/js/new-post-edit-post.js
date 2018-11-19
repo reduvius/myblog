@@ -1,5 +1,5 @@
 // NEW FORM VALIDATION
-function validateForm() {
+function validateNewForm() {
     var x = document.forms["new-form"]["title"].value;
     var y = document.forms["new-form"]["content"].value;
     if (x == "") {
@@ -13,7 +13,7 @@ function validateForm() {
 }
 
 // EDIT FORM VALIDATION
-function validateForm() {
+function validateEditForm() {
     var x = document.forms["edit-form"]["title"].value;
     var y = document.forms["edit-form"]["content"].value;
     if (x == "") {

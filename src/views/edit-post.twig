@@ -16,7 +16,7 @@
             <h2>Edit post</h2>
 
             <form name="edit-form" action="/edit-post/{{ post.id }}"
-                method="post" onsubmit="return validateForm()">
+                method="post" onsubmit="return validateEditForm()">
                 <label for="title"><i class='fas fa-pen'></i> Title</label>
                 <input type="text" name="title" value="{{ post.title }}">
 
