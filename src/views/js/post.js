@@ -71,16 +71,19 @@ $(document).ready(function() {
     });
 });
 
-// Validate comment form
+/* Validate comment form
 function validateForm() {
-    var x = document.forms["nwfm1"]["comm-name"].value;
-    var y = document.forms["nwfm1"]["comment"].value;
-    if (x == "") {
-        alert("Name must be filled out.");
+    var comm_name = document.forms["comm-form"]["comm-name"].value;
+    var comment = document.forms["comm-form"]["comment"].value;
+    var val_info = document.getElementById("val-info");
+
+    if (comm_name == "") {
+        val_info.innerHTML = "Name must be filled out.";
         return false;
     }
-    if (y == "") {
-        alert("Comment cannot be empty.");
+    if (comment == "") {
+        val_info.innerHTML = "Comment cannot be empty.";
         return false;
     }
 }
+*/

@@ -1,8 +1,10 @@
+/* I'll leave this as an option
 $(document).ready(function() {
     $("#plsi").click(function() {
         $(this).hide();
     });
 });
+*/
 
 // More/less text function
 $(document).ready(function() {

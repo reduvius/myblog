@@ -20,6 +20,11 @@
     border-radius: 5px;
 }
 
+#main #container #val-info {
+    color: #e0301e;
+    font-weight: bold;
+}
+
 #main #container input[type=text], #main #container textarea {
     width: 100%;
     padding: 12px;

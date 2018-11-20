@@ -1,13 +1,15 @@
 // Validate login form
 function validateForm() {
-    var x = document.forms["login"]["email"].value;
-    var y = document.forms["login"]["password"].value;
-    if (x == "") {
-        alert("Email must be filled out");
+    var email = document.forms["login"]["email"].value;
+    var password = document.forms["login"]["password"].value;
+    var val_info = document.getElementById("val-info");
+
+    if (email == "") {
+        val_info.innerHTML = "Email must be filled out.";
         return false;
     }
-    if (y == "") {
-        alert("Password must be filled out");
+    if (password == "") {
+        val_info.innerHTML = "Password must be filled out.";
         return false;
     }
 }

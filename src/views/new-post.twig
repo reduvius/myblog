@@ -19,6 +19,8 @@
                 <p id="err"><strong>{{ errorMessage }}</strong></p>
             {% endif %}
 
+            <p id="val-info"></p>
+
             <form name="new-form" action="/new" method="post"
                 onsubmit="return validateNewForm()">
                 <label for="title"><i class='fas fa-pen'></i> Title</label>

@@ -119,6 +119,13 @@
 	margin: -1.7% auto 2% auto;
 }
 
+/*
+#main #comment-section #val-info {
+    color: #e0301e;
+    font-weight: bold;
+}
+*/
+
 #comment-section form input[type=text] {
 	margin: 2% 3%;
 }
