@@ -5,6 +5,7 @@ namespace MyBlog\Controllers;
 use MyBlog\Models\UserModel;
 use MyBlog\Domain\User\UserFactory;
 use MyBlog\Models\PostModel;
+use MyBlog\Models\ImageModel;
 
 class UserController extends AbstractController {
     // Get registration form
@@ -120,10 +121,14 @@ class UserController extends AbstractController {
         $postModel = new PostModel($this->db);
         $numberOfPosts = $postModel->countPostsByUser($this->userId);
 
+        $imageModel = new ImageModel($this->db);
+        $numberOfImages = $imageModel->countImagesByUser($this->userId);
+
         $properties = [
             'user' => $user,
             'isAuth' => $this->isAuthenticated(),
-            'numberOfPosts' => $numberOfPosts
+            'numberOfPosts' => $numberOfPosts,
+            'numberOfImages' => $numberOfImages
         ];
         return $this->render('profile.twig', $properties);
     }

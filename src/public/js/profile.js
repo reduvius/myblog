@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var stats = $("#stats")
+    var stats = $("#stats");
     $("#show").click(function(){
         stats.slideToggle(800);
         var show = $(this);

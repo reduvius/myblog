@@ -1,17 +1,21 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
-    My Articles
+    My Posts
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/posts.css" />
+    <link rel="stylesheet" href="/src/public/css/posts.css" />
 {% endblock %}
 
 {% block content %}
 
     <div class="col-3 col-s-1"></div>
     <div class="col-6 col-s-10">
+        {% if not numberOfPosts %}
+            <h1>Nothing here yet.</h1>
+        {% endif %}
+
         {% for post in posts %}
             <div class="post-content">
                 <h2><a href="/post/{{ post.id }}">{{ post.title }}</a></h2>
@@ -24,6 +28,7 @@
                     <p>Posted by: {{ post.name }}</p>
                     <p>|</p>
                     <i class='fas fa-comment'></i>
+                    <p>0</p>
                 </div>
                 <div class="pst-cnt">{{ post.content }}</div>
             </div>
@@ -63,5 +68,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/posts.js"></script>
+    <script src="/src/public/js/posts.js"></script>
 {% endblock %}

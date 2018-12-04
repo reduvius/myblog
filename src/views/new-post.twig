@@ -1,11 +1,11 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
-    New Article
+    New Post
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/new-post-edit-post.css" />
+    <link rel="stylesheet" href="/src/public/css/new-post-edit-post.css" />
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
     <div class="col-6 col-s-10">
         <!-- NEW POST FORM -->
         <div id="container">
-            <h2>Add new post</h2>
+            <h1><i class='far fa-sticky-note'></i> Add new post</h1>
 
             {% if errorMessage is defined %}
                 <p id="err"><strong>{{ errorMessage }}</strong></p>
@@ -21,7 +21,7 @@
 
             <p id="val-info"></p>
 
-            <form name="new-form" action="/new" method="post"
+            <form name="new-form" action="/new-post" method="post"
                 onsubmit="return validateNewForm()">
                 <label for="title"><i class='fas fa-pen'></i> Title</label>
                 <input type="text" name="title">
@@ -39,5 +39,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/new-post-edit-post.js"></script>
+    <script src="/src/public/js/new-post-edit-post.js"></script>
 {% endblock %}

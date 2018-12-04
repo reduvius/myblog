@@ -1,0 +1,45 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block title %}
+    New Image
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/src/public/css/new-image.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="col-3 col-s-1"></div>
+    <div id="central" class="col-6 col-s-10">
+        <h1><i class='far fa-images'></i> Upload your images here</h1>
+
+        <!-- Error message -->
+        {% if errorMessage is defined %}
+            <div id="err">
+                <p>{{ errorMessage }}<span title="Close">&#10006;</span></p>
+            </div>
+        {% endif %}
+        <!-- Succes message -->
+        {% if successMessage is defined %}
+            <div id="succ">
+                <p>{{ successMessage }}<span title="Close">&#10006;</span></p>
+            </div>
+        {% endif %}
+
+        <!-- NEW IMAGE FORM -->
+        <div id="container">
+            <p id="flip"><i class='fas fa-plus-circle'></i> Add new image</p>
+
+            <form action="/new-image" method="post"
+                enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Upload Image" name="submit">
+            </form>
+        </div>
+    </div>
+    <div class="col-3 col-s-1"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="/src/public/js/new-image.js"></script>
+{% endblock %}

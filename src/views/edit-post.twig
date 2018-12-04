@@ -1,11 +1,11 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
     Edit Article
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/new-post-edit-post.css" />
+    <link rel="stylesheet" href="/src/public/css/new-post-edit-post.css" />
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
     <div class="col-6 col-s-10">
         <!-- EDIT POST FORM -->
         <div id="container">
-            <h2>Edit post</h2>
+            <h1><i class='far fa-edit'></i> Edit post</h1>
 
             <p id="val-info"></p>
 
@@ -35,5 +35,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/new-post-edit-post.js"></script>
+    <script src="/src/public/js/new-post-edit-post.js"></script>
 {% endblock %}

@@ -53,7 +53,7 @@ SQL;
 		return $sth->fetchAll(PDO::FETCH_CLASS, self::CLASSNAME);
 	}
 
-    // Count number of posts from certain user
+    // Count number of posts by certain user
 	public function countPostsByUser(int $userId): int {
 		$query = <<<SQL
 SELECT COUNT(*)

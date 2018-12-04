@@ -1,11 +1,11 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
-    Articles
+    Posts
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/posts.css" />
+    <link rel="stylesheet" href="/src/public/css/posts.css" />
 {% endblock %}
 
 {% block content %}
@@ -24,6 +24,7 @@
                     <p>Posted by: {{ post.name }}</p>
                     <p>|</p>
                     <i class='fas fa-comment'></i>
+                    <p>0</p>
                 </div>
                 <div class="pst-cnt">{{ post.content }}</div>
             </div>
@@ -63,5 +64,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/posts.js"></script>
+    <script src="/src/public/js/posts.js"></script>
 {% endblock %}

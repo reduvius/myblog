@@ -1,4 +1,13 @@
 {
+    "name": "reduvius/myblog",
+    "description": "A small blog for demonstration purposes only.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Veljko Dimitrijevic",
+            "email": "reduvius@protonmail.com"
+        }
+    ],
     "require": {
         "monolog/monolog": "^1.23",
         "twig/twig": "^2.4"

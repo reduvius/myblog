@@ -74,6 +74,7 @@ class PostController extends AbstractController {
 
 		$properties = [
 			'posts' => $posts,
+			'numberOfPosts' => $numberOfPosts,
 			'pagesArray' => $pagesArray,
 			'isAuth' => $this->isAuthenticated(),
 			'uId' => $this->returnUserCookie(),
@@ -88,7 +89,7 @@ class PostController extends AbstractController {
 		return $this->getPostsByUserWithPage(1);
 	}
 
-    // Search by post title
+    // Search post by title
 	public function search(): string {
 		$title = $this->request->getParams()->getString('title');
 

@@ -1,0 +1,36 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block title %}
+    My Gallery
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/src/public/css/gallery.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="col-1 col-s-1"></div>
+    <div id="central" class="col-10 col-s-10">
+        {% if not numberOfImages %}
+            <h1>Nothing here yet.</h1>
+        {% endif %}
+
+        {% for image in images %}
+            <div id="container">
+                <img src="../../src/storage/images/uploads/{{ image.name }}"
+                    alt="{{ image.name }}">
+                <p><i class='fas fa-clock'></i> {{ image.date }}</p>
+                <!--
+                <a id="i-del" href="delete-image/{{ image.id }}"
+                    title="Delete image"><i class='far fa-trash-alt'></i>
+                </a>
+                -->
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-1 col-s-1"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="/src/public/js/gallery.js"></script>
+{% endblock %}

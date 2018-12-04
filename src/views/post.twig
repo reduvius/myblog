@@ -1,11 +1,11 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
     {{ post.title }}
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/post.css" />
+    <link rel="stylesheet" href="/src/public/css/post.css" />
 {% endblock %}
 
 {% block content %}
@@ -17,7 +17,7 @@
     <div class="col-3 col-s-1"></div>
     <div class="col-6 col-s-10">
         <div id="post-content">
-            <h2>{{ post.title }}</h2>
+            <h2><span>{{ post.title }}</span></h2>
             <hr>
             <div id="sec1">
                 <div>
@@ -28,6 +28,7 @@
                     <p>Posted by: {{ post.name }}</p>
                     <p>|</p>
                     <i class='fas fa-comment'></i>
+                    <p>0</p>
                 </div>
                 <div>
                     <p id="show-size">Text size <span>▸</span></p>
@@ -68,5 +69,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/post.js"></script>
+    <script src="/src/public/js/post.js"></script>
 {% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'layouts/layout.twig' %}
+
+{% block title %}
+    Gallery
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/src/public/css/gallery.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="col-1 col-s-0"></div>
+    <div id="central" class="col-10 col-s-12">
+        {% for image in images %}
+            <div id="container">
+                <img src="../../src/storage/images/uploads/{{ image.name }}"
+                    alt="{{ image.name }}" id="imgO">
+                <p><i class='fas fa-clock'></i> {{ image.date }}</p>
+                <p><i class='fas fa-user'></i> Posted by: {{ image.uname }}</p>
+            </div>
+        {% endfor %}
+
+        <!-- The modal for images-->
+        <div id="modalImg" class="modalImg">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="imgMd">
+            <div id="caption"></div>
+        </div>
+    </div>
+    <div class="col-1 col-s-0"></div>
+{% endblock %}
+
+{% block js %}
+    <script src="/src/public/js/gallery.js"></script>
+{% endblock %}

@@ -38,12 +38,12 @@
     "controller": "Post",
 	"method": "search"
   },
-  "new/get-form": {
+  "new-post/get-form": {
     "controller": "Post",
     "method": "newPostGetForm",
     "login": true
   },
-  "new": {
+  "new-post": {
     "controller": "Post",
 	"method": "newPost",
 	"login": true
@@ -67,6 +67,33 @@
   "edit-post/:id": {
     "controller": "Post",
     "method": "editPost",
+    "login": true,
+    "params": {
+	  "id": "number"
+	}
+  },
+  "gallery": {
+    "controller": "Image",
+    "method": "getImages"
+  },
+  "my-gallery": {
+    "controller": "Image",
+    "method": "getImagesByUser",
+    "login": true
+  },
+  "new-image/get-form": {
+    "controller": "Image",
+    "method": "newImageGetForm",
+    "login": true
+  },
+  "new-image": {
+    "controller": "Image",
+    "method": "newImage",
+    "login": true
+  },
+  "delete-image/:id": {
+    "controller": "Image",
+    "method": "deleteImage",
     "login": true,
     "params": {
 	  "id": "number"

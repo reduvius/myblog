@@ -1,11 +1,11 @@
-{% extends 'layout.twig' %}
+{% extends 'layouts/layout.twig' %}
 
 {% block title %}
     My Profile
 {% endblock %}
 
 {% block css %}
-    <link rel="stylesheet" href="/src/views/css/profile.css" />
+    <link rel="stylesheet" href="/src/public/css/profile.css" />
 {% endblock %}
 
 {% block content %}
@@ -24,13 +24,20 @@
             <hr>
             <p><i class='fas fa-key'></i> Password</p>
             <hr>
+            <p><i class='fas fa-lock'></i> Access Level:</p>
+            <hr>
+            <p><i class='fas fa-calendar-check'></i> Joined:</p>
+            <hr>
             <p id="show">Show stats ▾</p>
-            <p id="stats">• Number of posts: {{ numberOfPosts }}</p>
+            <div id="stats">
+                <p>• Number of posts: {{ numberOfPosts }}</p>
+                <p>• Number of images uploaded: {{ numberOfImages }}</p>
+            </div>
         </div>
     </div>
     <div class="col-4 col-s-3"></div>
 {% endblock %}
 
 {% block js %}
-    <script src="/src/views/js/profile.js"></script>
+    <script src="/src/public/js/profile.js"></script>
 {% endblock %}

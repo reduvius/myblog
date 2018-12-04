@@ -1,8 +1,10 @@
 /* ----------------- POST CONTENT --------------- */
 #post-content {
-	background: rgba(54, 69, 79, 0.1);
+	border-radius: 0.4em;
+	border: 2px solid rgba(54, 69, 79, 0.1);
 	margin: 3% auto;
 	text-align: justify;
+	min-width: 40em;
 	position: relative;
 	z-index: auto;
 }
@@ -11,12 +13,12 @@
 	padding: 5% 5% 0% 5%;
 }
 
-#post-content h2:hover {
+#post-content h2 span:hover {
 	text-decoration: underline;
 }
 
 #post-content hr {
-    border: 1px solid #afafaf;
+    border: 1px solid rgba(54, 69, 79, 0.1);
     margin: 0% 5% 1% 5%;
 }
 
@@ -113,7 +115,8 @@
 
 /* -------------- COMMENT SECTION --------------- */
 #comment-section {
-	background: rgba(54, 69, 79, 0.1);
+	border-radius: 0.4em;
+    border: 2px solid rgba(54, 69, 79, 0.1);
 	display: none;
 	z-index: auto;
 	margin: -1.7% auto 2% auto;
@@ -139,24 +142,32 @@
 
 #comment-section form input[type=text], #comment-section form textarea {
     padding: 0.5em;
-    border: 1px solid #ccc;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     color: #333333;
-    background-color: #fdfbfb;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 4px;
     box-sizing: border-box;
+	transition: 0.5s;
+}
+
+#comment-section form input[type=text]:focus,
+#comment-section form textarea:focus {
+    border: 1px solid #5bc0de;
 }
 
 #comment-section form input[type=submit] {
 	margin: 2% 3%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
+	background-color: inherit;
+    color: #45a049;
+    padding: 0.3em 1em;
+    border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
     transition: 0.4s;
 }
 
 #comment-section form input[type=submit]:hover {
-    background-color: #45a049;
+	background-color: #45a049;
+    color: white;
+    border: 1px solid #45a049;
 }

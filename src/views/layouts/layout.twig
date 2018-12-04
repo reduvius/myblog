@@ -8,7 +8,7 @@
 		<meta name="author" content="VexOn">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- LOAD CSS -->
-        <link rel="stylesheet" href="/src/views/css/layout.css" />
+        <link rel="stylesheet" href="/src/public/css/layout.css" />
         {% block css %} {% endblock %}
         <!-- LOAD ICONS -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -17,23 +17,50 @@
 	</head>
 
     <body>
-        <!-- HEADER -->
+        <!-- ************************** HEADER **************************** -->
         <header>
             <h2>Myblog: a simple demo website</h2>
             <p><span>{</span> work in progress... <span>}</span></p>
         </header>
 
-        <!-- NAVIGATION BAR -->
+        <!-- *********************** NAVIGATION BAR *********************** -->
         <nav class="topnav" id="myTopnav">
             <!-- LEFT -->
             <a href="/"><i class='fas fa-home'></i></a>
-            <a href="/posts">Articles</a>
+            <a href="/posts"><i class='fas fa-newspaper'></i> Posts</a>
+            <a href="/gallery"><i class='fas fa-images'></i> Gallery</a>
             {% if isAuth %}
-                <a href="/my-posts">My Articles</a>
-                <a href="/new/get-form">New</a>
+                <!-- DROPDOWN: MY -->
+                <div class="l-nav dropdown" id="ddn1">
+                    <button class="dropbtn">
+                        My <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/my-posts">
+                            <i class='fas fa-newspaper'></i> Posts
+                        </a>
+                        <a href="/my-gallery">
+                            <i class='fas fa-images'></i> Gallery
+                        </a>
+                    </div>
+                </div>
+                <!-- DROPDOWN: NEW -->
+                <div class="l-nav dropdown" id="ddn2">
+                    <button class="dropbtn">
+                        New <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/new-post/get-form">
+                            <i class='fas fa-sticky-note'></i> Post
+                        </a>
+                        <a href="/new-image/get-form">
+                            <i class='fas fa-image'></i> Image
+                        </a>
+                    </div>
+                </div>
             {% endif %}
             <!-- SEARCH -->
-            <div class="search-container">
+            <div class="l-nav search-container">
                 <form action="/search" method="get">
                     <input type="search" placeholder="Search by title"
                         name="title">
@@ -43,8 +70,8 @@
             <!-- RIGHT -->
             <div class="r-nav">
                 {% if isAuth %}
-                    <!-- DROPDOWN -->
-                    <div class="dropdown">
+                    <!-- DROPDOWN: USER -->
+                    <div class="dropdown" id="ddn3">
                         <button class="dropbtn">
                             <i class='fas fa-user'></i>
                             <i class='fas fa-caret-down'></i>
@@ -73,12 +100,12 @@
             </a>
         </nav>
 
-        <!-- CONTENT BLOCK -->
+        <!-- *********************** CONTENT BLOCK ************************ -->
         <div id="main" class="row">
 		    {% block content %}{% endblock %}
         </div>
 
-        <!-- FOOTER -->
+        <!-- ************************** FOOTER **************************** -->
         <footer>
             <div id="l-footer">
                 <p>Developed by <span>Vex</span>, 2018.</p>
@@ -94,8 +121,8 @@
             </div>
         </footer>
 
-        <!-- LOAD JS -->
-        <script src="/src/views/js/layout.js"></script>
+        <!-- ************************** LOAD JS *************************** -->
+        <script src="/src/public/js/layout.js"></script>
         {% block js %} {% endblock %}
     </body>
 

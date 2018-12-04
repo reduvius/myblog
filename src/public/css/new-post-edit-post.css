@@ -6,10 +6,15 @@
 }
 
 #main #container {
-    border-radius: 5px;
-    background: rgba(54, 69, 79, 0.1);
+    border-radius: 0.4em;
+    border: 2px solid rgba(54, 69, 79, 0.1);
     padding: 3%;
     margin: 5% 0% 5% 0%;
+}
+
+#main #container h1 {
+    text-align: center;
+    padding: 1% 0%;
 }
 
 #main #container #err {
@@ -17,24 +22,27 @@
     background-color: #e0301e;
     padding: 1%;
     margin-top: 2%;
-    border-radius: 5px;
+    border-radius: 0.4em;
+    text-align: center;
 }
 
 #main #container #val-info {
     color: #e0301e;
     font-weight: bold;
+    text-align: center;
 }
 
 #main #container input[type=text], #main #container textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
+    padding: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.5);
     color: #333333;
-    background-color: #fdfbfb;
-    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 0.4em;
     box-sizing: border-box;
     margin: 6px 0 16px 0;
     resize: vertical;
+    transition: 0.5s;
 }
 
 #main #container input[type=text]:focus, #main #container textarea:focus {
@@ -42,15 +50,17 @@
 }
 
 #main #container input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: inherit;
+    color: #45a049;
     padding: 0.6em 1.8em;
-    border: none;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 0.4em;
     cursor: pointer;
-    transition: 0.4s;
+    transition: 0.5s;
 }
 
 #main #container input[type=submit]:hover {
     background-color: #45a049;
+    color: white;
+    border: 1px solid #45a049;
 }

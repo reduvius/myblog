@@ -1,0 +1,75 @@
+#central {
+    border-radius: 0.4em;
+    border: 2px solid rgba(54, 69, 79, 0.1);
+    margin: 5% 0%;
+}
+
+h1 {
+    text-align: center;
+    margin: 10% 0% 5% 0%;
+}
+
+/* ------------- ERROR/SUCCESS MESSAGE ---------- */
+#err, #succ {
+    padding: 0% 2%;
+    border-radius: 0.4em;
+    margin: 5% 10%;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: 0.5s;
+    text-align: center;
+}
+
+#err span, #succ span {
+    float: right;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-left: 3%;
+}
+
+#err {
+    color: #e0301e;
+    border: 3px solid #e0301e;
+}
+
+#err:hover {
+    border: 3px solid #990000;
+}
+
+#err span:hover {
+    color: #990000;
+}
+
+#succ {
+    color: #28a745;
+    border: 3px solid #28a745;
+}
+
+#succ:hover {
+    border: 3px solid #2E6D02;
+}
+
+#succ span:hover {
+    color: #2E6D02;
+}
+
+/* ----------------- UPLOAD FORM ---------------- */
+#container {
+    padding: 1%;
+    margin: 5% 0%;
+    text-align: center;
+}
+
+#container p {
+    padding: 0% 5%;
+    cursor: pointer;
+}
+
+#container p:hover {
+    text-decoration: underline;
+}
+
+#container form {
+    padding: 2% 5%;
+    display: none;
+}
