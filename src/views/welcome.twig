@@ -23,7 +23,11 @@
         </ul>
     </div>
     <div class="col-7 col-s-8">
-        <h1>Welcome!</h1>
+        {% if isAuth and user.id == uId %}
+            <h1>Welcome, {{ user.name }}!</h1>
+        {% else %}
+            <h1>Welcome to my demo blog!</h1>
+        {% endif %}
 
         <p>A small blog for demonstration purposes only.</p>
         <p>This project doesn't use any PHP framework, it's vanilla PHP.</p>
