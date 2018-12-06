@@ -9,17 +9,20 @@
 {% endblock %}
 
 {% block content %}
-    <div class="col-3 col-s-1"></div>
-    <div class="col-6 col-s-10">
+    <div class="col-3"></div>
+    <div class="col-6">
         <!-- NEW POST FORM -->
         <div id="container">
-            <h1><i class='far fa-sticky-note'></i> Add new post</h1>
+            <div id="form-head">
+                <h1><i class='far fa-sticky-note'></i> Add new post</h1>
+                <hr>
 
-            {% if errorMessage is defined %}
-                <p id="err"><strong>{{ errorMessage }}</strong></p>
-            {% endif %}
+                {% if errorMessage is defined %}
+                    <p id="err"><strong>{{ errorMessage }}</strong></p>
+                {% endif %}
 
-            <p id="val-info"></p>
+                <p id="val-info"></p>
+            </div>
 
             <form name="new-form" action="/new-post" method="post"
                 onsubmit="return validateNewForm()">
@@ -31,11 +34,13 @@
                 </label>
                 <textarea name="content" rows="12"></textarea>
 
+                <hr>
+
                 <input type="submit" value="Save">
             </form>
         </div>
     </div>
-    <div class="col-3 col-s-1"></div>
+    <div class="col-3"></div>
 {% endblock %}
 
 {% block js %}
