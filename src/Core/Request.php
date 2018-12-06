@@ -11,6 +11,7 @@ class Request {
 	private $method;
 	private $params;
 	private $cookies;
+	private $files;
 
 	public function __construct() {
 		$this->domain = $_SERVER['HTTP_HOST'];
@@ -18,6 +19,7 @@ class Request {
 		$this->method = $_SERVER['REQUEST_METHOD'];
 		$this->params = new FilteredMap(array_merge($_POST, $_GET));
 		$this->cookies = new FilteredMap($_COOKIE);
+		$this->files = new FilteredMap($_FILES);
 	}
 
 	// Get full url
@@ -51,6 +53,10 @@ class Request {
 
 	public function getCookies(): FilteredMap {
 		return $this->cookies;
+	}
+
+	public function getFiles(): FilteredMap {
+		return $this->files;
 	}
 }
 

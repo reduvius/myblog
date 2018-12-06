@@ -43,49 +43,52 @@ class ImageController extends AbstractController {
 
     // Upload new image
     public function newImage(): string {
+        if (!$this->request->isPost()) {
+			return $this->render('new-image.twig', [
+				'isAuth' => $this->isAuthenticated()
+			]);
+		}
+
+        // Get files filtered map
+        $files = $this->request->getFiles();
         // Original name of the file from the user's computer
-        $originalName = basename($_FILES["fileToUpload"]["name"]);
+        $origName = basename($files->getStringNested('fileToUpload', 'name'));
         // Image file type
-        $imgFileType = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+        $imgFileType = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
         // Generate random name of the image for targetFile
         $newName = time() . mt_rand(1000, 9999);
         // Specifies the directory where the file is going to be placed
-        $targetDir = "/vagrant/application/myblog/src/storage/images/uploads/";
+        $targetDir = $this->config->get('uploads');
         // Specifies the path of the file to be uploaded
         $targetFile = $targetDir . $newName . "." . $imgFileType;
+        // Temporary file name of the file on the server
+        $tmpName = $files->getStringNested('fileToUpload', 'tmp_name');
         // Upload: 0 or 1
         $uploadOk = 1;
 
+        if ($tmpName) {
+            $uploadOk = 1;
+        } else {
+            $params = [
+    			'errorMessage' => 'No file selected.',
+    		    'isAuth' => $this->isAuthenticated()
+    		];
+    		return $this->render('new-image.twig', $params);
+
+            $uploadOk = 0;
+        }
 
         // Check if image file is an actual image or a fake image
-        if (isset($_POST["submit"])) {
-            $tmpName = $_FILES["fileToUpload"]["tmp_name"];
+        if (getimagesize($tmpName)) {
+            $uploadOk = 1;
+        } else {
+            $params = [
+    			'errorMessage' => 'File is not an image.',
+    		    'isAuth' => $this->isAuthenticated()
+    		];
+    		return $this->render('new-image.twig', $params);
 
-            if ($tmpName) {
-                $uploadOk = 1;
-            } else {
-                $params = [
-    				'errorMessage' => 'No file selected.',
-    		        'isAuth' => $this->isAuthenticated()
-    			];
-    			return $this->render('new-image.twig', $params);
-
-                $uploadOk = 0;
-            }
-
-            $check = getimagesize($tmpName);
-
-            if ($check) {
-                $uploadOk = 1;
-            } else {
-                $params = [
-    				'errorMessage' => 'File is not an image.',
-    		        'isAuth' => $this->isAuthenticated()
-    			];
-    			return $this->render('new-image.twig', $params);
-
-                $uploadOk = 0;
-            }
+            $uploadOk = 0;
         }
 
         // Check if file already exists
@@ -100,7 +103,7 @@ class ImageController extends AbstractController {
         }
 
         // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 2000000) {
+        if ($files->getIntNested('fileToUpload', 'size') > 2000000) {
             $params = [
                 'errorMessage' => 'Sorry, your file is too large.',
                 'isAuth' => $this->isAuthenticated()
@@ -139,8 +142,10 @@ class ImageController extends AbstractController {
 		$imageModel = new ImageModel($this->db);
 
         try {
-            move_uploaded_file($_FILES["fileToUpload"]["tmp_name"],
-                $targetFile);
+            move_uploaded_file(
+                $files->getStringNested('fileToUpload', 'tmp_name'),
+                $targetFile
+            );
             $imageModel->newImage($newImage);
         } catch (\Exception $e) {
             $this->log->warn('Error: failed to create new post');

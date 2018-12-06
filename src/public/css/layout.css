@@ -367,9 +367,9 @@ footer #r-footer a i.fa-facebook-f:hover {
     color: #3B5998;
 }
 
-footer #r-footer a i.fa-twitter:hover {
+footer #r-footer a i.fa-github:hover {
     background-color: white;
-    color: #55ACEE;
+    color: #111;
 }
 
 footer #r-footer a i.fa-linkedin-in:hover {

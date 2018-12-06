@@ -3,5 +3,6 @@
     "user": "phplay",
     "password": "zx"
   },
-  "log": "/vagrant/application/myblog/src/var/log/myblog.log"
+  "log": "/vagrant/application/myblog/src/var/log/myblog.log",
+  "uploads": "/vagrant/application/myblog/src/storage/images/uploads/"
 }

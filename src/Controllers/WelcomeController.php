@@ -7,7 +7,7 @@ use MyBlog\Models\UserModel;
 class WelcomeController extends AbstractController {
 	// Get welcome page
 	public function getWelcomePage(): string {
-		if ($this->returnUserCookie()) {
+		if ($this->isAuthenticated()) {
 		    $userModel = new UserModel($this->db);
             $user = $userModel->getUserById($this->returnUserCookie());
 
