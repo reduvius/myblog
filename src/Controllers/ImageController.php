@@ -52,7 +52,7 @@ class ImageController extends AbstractController {
         // Get files filtered map
         $files = $this->request->getFiles();
         // Original name of the file from the user's computer
-        $origName = basename($files->getStringNested('fileToUpload', 'name'));
+        $origName = basename($files->getString('fileToUpload', 'name'));
         // Image file type
         $imgFileType = strtolower(pathinfo($origName, PATHINFO_EXTENSION));
         // Generate random name of the image for targetFile
@@ -62,7 +62,7 @@ class ImageController extends AbstractController {
         // Specifies the path of the file to be uploaded
         $targetFile = $targetDir . $newName . "." . $imgFileType;
         // Temporary file name of the file on the server
-        $tmpName = $files->getStringNested('fileToUpload', 'tmp_name');
+        $tmpName = $files->getString('fileToUpload', 'tmp_name');
         // Upload: 0 or 1
         $uploadOk = 1;
 
@@ -103,7 +103,7 @@ class ImageController extends AbstractController {
         }
 
         // Check file size
-        if ($files->getIntNested('fileToUpload', 'size') > 2000000) {
+        if ($files->getInt('fileToUpload', 'size') > 2000000) {
             $params = [
                 'errorMessage' => 'Sorry, your file is too large.',
                 'isAuth' => $this->isAuthenticated()
@@ -143,7 +143,7 @@ class ImageController extends AbstractController {
 
         try {
             move_uploaded_file(
-                $files->getStringNested('fileToUpload', 'tmp_name'),
+                $files->getString('fileToUpload', 'tmp_name'),
                 $targetFile
             );
             $imageModel->newImage($newImage);

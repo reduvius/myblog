@@ -9,49 +9,51 @@ class FilteredMap {
 		$this->map = $baseMap;
 	}
 
-	public function has(string $name): bool {
-		return isset($this->map[$name]);
+	public function has(string $name1, string $name2 = null): bool {
+		if (!$name2) {
+		    return isset($this->map[$name1]);
+		} else {
+			return isset($this->map[$name1][$name2]);
+		}
 	}
 
-	// nested array: has
-	public function hasNested(string $name1, string $name2): bool {
-		return isset($this->map[$name1][$name2]);
+	public function get(string $name1, string $name2 = null) {
+		if (!$name2) {
+		    return $this->map[$name1] ?? null; // Null coalescing operator
+		} else {
+			return $this->map[$name1][$name2] ?? null;
+		}
 	}
 
-	public function get(string $name) {
-		return $this->map[$name] ?? null; // Null Coalescing Operator
+    // Get integer
+	public function getInt(string $name1, string $name2 = null) {
+		if (!$name2) {
+		    return (int) $this->get($name1);
+		} else {
+			return (int) $this->get($name1, $name2);
+		}
 	}
 
-    // nested array: get
-	public function getNested(string $name1, string $name2) {
-		return $this->map[$name1][$name2] ?? null;
+    // Get floating number
+	public function getNumber(string $name1, string $name2 = null) {
+		if (!$name2) {
+		    return (float) $this->get($name1);
+		} else {
+			return (float) $this->get($name1, $name2);
+		}
 	}
 
-	public function getInt(string $name) {
-		return (int) $this->get($name);
-	}
-
-    // nested array: get integer
-	public function getIntNested(string $name1, string $name2) {
-		return (int) $this->getNested($name1, $name2);
-	}
-
-	public function getNumber(string $name) {
-		return (float) $this->get($name);
-	}
-
-	public function getString(string $name, bool $filter = true) {
-		$value = (string) $this->get($name);
-		return $filter ? addslashes($value) : $value;
-	}
-
-    // nested array: get string
-	public function getStringNested(
+    // Get string with or without slashes
+	public function getString(
 		string $name1,
-		string $name2,
+		string $name2 = null,
 		bool $filter = true
 	) {
-		$value = (string) $this->getNested($name1, $name2);
+		if (!$name2) {
+		    $value = (string) $this->get($name1);
+		} else {
+			$value = (string) $this->get($name1, $name2);
+		}
 		return $filter ? addslashes($value) : $value;
 	}
 }
