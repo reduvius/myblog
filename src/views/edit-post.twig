@@ -13,9 +13,12 @@
     <div class="col-6 col-s-10">
         <!-- EDIT POST FORM -->
         <div id="container">
-            <h1><i class='far fa-edit'></i> Edit post</h1>
+            <div id="form-head">
+                <h1><i class='far fa-edit'></i> Edit post</h1>
+                <hr>
 
-            <p id="val-info"></p>
+                <p id="val-info"></p>
+            </div>
 
             <form name="edit-form" action="/edit-post/{{ post.id }}"
                 method="post" onsubmit="return validateEditForm()">
@@ -26,6 +29,8 @@
                     <i class='fas fa-align-justify'></i> Text
                 </label>
                 <textarea name="content" rows="12">{{ post.content }}</textarea>
+
+                <hr>
 
                 <input type="submit" value="Save">
             </form>
